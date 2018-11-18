@@ -5,21 +5,42 @@ Parallax Totorial Site
 참고 사이트 : https://wtss.tistory.com/category/parallax
 
 <div class="parallax">
-  <h3>Parallax</h3>
+  <h3>Parallax Tutorial</h3>
   <ul>
-    <li><a href="http://wtss.tistory.com/154">[Parallax] 01. 패럴럭스 배우기 - 기본</a></li>
-    <li><a href="http://wtss.tistory.com/155">[Parallax] 02. 패럴럭스 배우기 - Menu 연동</a></li>
-    <li><a href="http://wtss.tistory.com/156">[Parallax] 03. 패럴럭스 배우기 - Responsive Menu</a></li>
-    <li><a href="http://wtss.tistory.com/157">[Parallax] 04. 패럴럭스 배우기 - Responsive Dropdown Menu</a></li>
-    <li><a href="http://wtss.tistory.com/158">[Parallax] 05. 패럴럭스 배우기 - Side Menu</a></li>
-    <li><a href="http://wtss.tistory.com/159">[Parallax] 06. 패럴럭스 배우기 - Sticky Menu</a></li>
-    <li><a href="http://wtss.tistory.com/160">[Parallax] 07. 패럴럭스 배우기 - Hidden Menu</a></li>
-    <li><a href="http://wtss.tistory.com/161">[Parallax] 08. 패럴럭스 배우기 - Scroll Show/Hide Menu</a></li>
-    <li><a href="http://wtss.tistory.com/162">[Parallax] 09. 패럴럭스 배우기 - Dot Menu</a></li>
-    <li><a href="http://wtss.tistory.com/163">[Parallax] 10. 패럴럭스 배우기 - Text Animation</a></li>
-    <li><a href="http://wtss.tistory.com/164">[Parallax] 11. 패럴럭스 배우기 - Text animate.css</a></li>
-    <li><a href="http://wtss.tistory.com/165">[Parallax] 12. 패럴럭스 배우기 - Text letter Animation(CSS)</a></li>
-    <li><a href="http://wtss.tistory.com/166">[Parallax] 13. 패럴럭스 배우기 - Text letter Animation(js1)</a></li>
-    <li><a href="http://wtss.tistory.com/167">[Parallax] 14. 패럴럭스 배우기 - Text letter Animation(js2)</a></li>
+    <li><a href="http://wtss.tistory.com/154">01. 패럴럭스 배우기 - 기본</a></li>
+    <li><a href="http://wtss.tistory.com/155">02. 패럴럭스 배우기 - Menu 연동</a></li>
+    <li><a href="http://wtss.tistory.com/156">03. 패럴럭스 배우기 - Responsive Menu</a></li>
+    <li><a href="http://wtss.tistory.com/157">04. 패럴럭스 배우기 - Side Menu</a></li>
+    <li><a href="http://wtss.tistory.com/158">05. 패럴럭스 배우기 - Sticky Menu</a></li>
+    <li><a href="http://wtss.tistory.com/159">06. 패럴럭스 배우기 - Hidden Menu</a></li>
+    <li><a href="http://wtss.tistory.com/160">07. 패럴럭스 배우기 - Scroll Show/Hide Menu</a></li>
+    <li><a href="http://wtss.tistory.com/161">08. 패럴럭스 배우기 - Dot Menu1</a></li>
+    <li><a href="http://wtss.tistory.com/162">09. 패럴럭스 배우기 - Dot Menu2</a></li>
+    <li><a href="http://wtss.tistory.com/163">10. 패럴럭스 배우기 - Dot Menu3</a></li>
+    <li><a href="http://wtss.tistory.com/164">11. 패럴럭스 배우기 - Text Animation1</a></li>
+    <li><a href="http://wtss.tistory.com/165">12. 패럴럭스 배우기 - Text Animation2 : animate.css</a></li>
+    <li><a href="http://wtss.tistory.com/166">13. 패럴럭스 배우기 - Text Animation3 : letter css</a></li>
+    <li><a href="http://wtss.tistory.com/167">14. 패럴럭스 배우기 - Text Animation4 : letter js</a></li>
+  </ul>
+</div>
+
+
+<div class="parallax">
+  <h3>Parallax Sample</h3>
+  <ul>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax154.html">parallax154.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax155.html">parallax155.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax156.html">parallax156.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax157.html">parallax157.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax158.html">parallax158.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax159.html">parallax159.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax160.html">parallax160.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax161.html">parallax161.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax162.html">parallax162.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax163.html">parallax163.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax164.html">parallax164.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax165.html">parallax165.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax166.html">parallax166.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax167.html">parallax167.html</a></li>
   </ul>
 </div>
