@@ -17,7 +17,9 @@
         #nav ul {float: right; padding-right: 10px; }
         #nav ul li {display: inline; }
         #nav ul li a {display: inline-block; padding: 20px 15px; color: #fff; font-weight: bold; font-family: 'Abel'; text-transform: capitalize;}
+        #nav ul li.active a {color: #000;}
         
+        /* contents */
         #contents {text-align: center; color: #fff;}
         #contents > div {height: 100vh; line-height: 100vh;}
         #contents > div h2 {font-size: 90px; font-weight: 100; text-transform: uppercase;}
@@ -36,7 +38,7 @@
     <nav id="nav">
         <h1>WEB'S</h1>
         <ul>
-            <li><a href="#section1">menu1</a></li>
+            <li class="active"><a href="#section1">menu1</a></li>
             <li><a href="#section2">menu2</a></li>
             <li><a href="#section3">menu3</a></li>
             <li><a href="#section4">menu4</a></li>
@@ -68,6 +70,35 @@
             var section = cont.eq(index);
             var offset = section.offset().top;
             $("html,body").animate({ scrollTop:offset },600,"easeInBounce");
+        });
+
+        $(window).scroll(function(){
+            var wScroll = $(this).scrollTop();
+            
+            if(wScroll >= cont.eq(0).offset().top){
+                nav.removeClass("active");
+                nav.eq(0).addClass("active");
+            }
+            if(wScroll >= cont.eq(1).offset().top){
+                nav.removeClass("active");
+                nav.eq(1).addClass("active");
+            }
+            if(wScroll >= cont.eq(2).offset().top){
+                nav.removeClass("active");
+                nav.eq(2).addClass("active");
+            }
+            if(wScroll >= cont.eq(3).offset().top){
+                nav.removeClass("active");
+                nav.eq(3).addClass("active");
+            }
+            if(wScroll >= cont.eq(4).offset().top){
+                nav.removeClass("active");
+                nav.eq(4).addClass("active");
+            }
+            if(wScroll >= cont.eq(5).offset().top){
+                nav.removeClass("active");
+                nav.eq(5).addClass("active");
+            }
         });
     </script>
 </body>

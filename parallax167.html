@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>Parallax</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <style>
+        /* reset */
+        * {margin:0; padding:0; font-family: 'Lato';}
+        li {list-style: none;}
+        a {text-decoration: none;}
+        
+        /* nav */
+        #nav {position: fixed; left: 0; top: 0px; width: 100%; height: 61px; z-index: 1000; background-color: rgba(255,255,255,0.3); transition: all 0.3s ease;}
+        #nav.on {position: fixed; top: -61px;}
+        #nav h1 {float: left; color: #fff; font-size: 40px; padding: 5px 5px 5px 15px; font-family: 'Abel' }
+        
+        /* dot */
+        #dot {position: fixed; right: 20px; top:50%; z-index: 10; transform: translatey(-50%);}
+        #dot li {
+            position: relative;
+            width: 20px; height: 20px; border-radius:50%; 
+            box-shadow: 0 0 0 2px rgba(255,255,255,0);
+            margin: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+        #dot li a { 
+            background-color: rgba(255,255,255,0.7);
+            width: 100%; height: 100%;
+            position: absolute; top:0; left: 0;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        #dot li.active {box-shadow: 0 0 0 2px rgba(255,255,255,1);}
+        #dot li.active a {transform: scale(0.4);}
+        #dot li a em {display: none;}   
+        
+        /* contents */
+        #contents {text-align: center; color: #fff;}
+        #contents > div {height: 100vh; display: flex; justify-content : center; align-items : center;}
+        #contents > div h2 {font-size: 70px; font-weight: 200; text-transform: uppercase;}
+        #contents > div h2 strong {font-weight: 700; font-style: italic; display: block;}
+        
+        /* section */
+        #section1 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
+        #section2 {background:radial-gradient(ellipse farthest-corner at center bottom, #3AA17E, #00537E);}
+        #section4 {background:radial-gradient(ellipse farthest-corner at center top, #29ABE2, #4F00BC);}
+        #section5 {background:radial-gradient(ellipse farthest-corner at center top, #FF5300, #45145A);}
+        #section6 {background:radial-gradient(ellipse farthest-corner at center bottom, #852D91, #312A6C);}
+        #section3 {background:radial-gradient(ellipse farthest-corner at center top, #FBB03B, #D4145A);}
+        
+        /* container */
+        .container {width: 1200px; margin: 0 auto;}
+        
+        /* text animation */
+        /* https://daneden.github.io/animate.css/ */        
+        #section1 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section1 h2 span.show {opacity:1;}
+        
+        #section2 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section2 h2 span.show {opacity:1;}
+        
+        #section3 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section3 h2 span.show {opacity:1;}
+                
+        #section4 h2 span {opacity:0; transition: opacity 0.6s ease;}
+        #section4 h2 span.show {opacity:1; animation: ani4 .35s ease;}
+        
+        #section5 h2 span {opacity:0; transition: opacity 0.6s ease; display: inline-block; margin-right: 5px;}
+        #section5 h2 span.show {opacity:1; animation: zoomInDown .35s ease;}
+        
+        @keyframes ani3 {
+            0% {transform: translate(-150px, -50px) scale(2);}
+            60% {transform: translate(0px, 20px) rotate(-180deg) scale(.5);}
+            100% {transform: translate(0) rotate(0) scale(1);}
+        }
+        @keyframes ani4 {
+            0% {transform: translate(0px, 0) scale(0);}
+            60% {transform: translate(0px, 0) scale(1); color:#b10e81;}
+            80% {transform: translate(0px, 0) scale(1); color:#b10e81;}
+            99% {transform: translate(0) scale(1.2); color:#00f0ff;}
+            100% {transform: translate(0) scale(1); color:#fff;}
+        }
+        @keyframes ani5 {
+            0% {transform: translate(0, -100px) rotate(360deg) scale(0);}
+            30% {transform: translate(0, -50px) rotate(180deg) scale(1);}
+            60% {transform: translate(0, 20px) rotate(0) scale(0.8);}
+            100% {transform: translate(0) rotate(0) scale(1);}
+          }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <h1>WEB'S</h1>
+    </nav>
+    
+    <div id="dot">
+        <ul>
+            <li class="active"><a href="#"><em>menu1</em></a></li>
+            <li><a href="#"><em>menu2</em></a></li>
+            <li><a href="#"><em>menu3</em></a></li>
+            <li><a href="#"><em>menu4</em></a></li>
+            <li><a href="#"><em>menu5</em></a></li>
+            <li><a href="#"><em>menu6</em></a></li>
+        </ul>
+    </div>
+
+    <div id="contents">
+        <div id="section1">
+            <div>
+                <h2><span>바</span><span>쁘</span><span>게</span> <span>살</span><span>던</span><span>가</span> <span>바</span><span>쁘</span><span>게</span> <span>죽</span><span>던</span><span>가</span></h2>
+            </div>
+        </div>
+        <div id="section2">
+            <div class="container">
+                <h2>편안함이 끝나고 궁핍이 시작될 때 인생의 가름침이 시작된다.</h2>
+            </div>
+        </div>
+        <div id="section3">
+            <div class="container">
+                <h2>시간이 약이면 뭐해! 마음이 기억하는데~</h2>
+            </div>
+        </div>
+        <div id="section4">
+            <div class="container">
+                <h2>예쁜 꽃을 찍으려면 예쁜 꽃을 볼 줄 알아야지.</h2>
+            </div>
+        </div>
+        <div id="section5">
+            <div class="container">
+                <h2>항상 이길 수는 없지만 항상 배울 수는 있습니다.</h2>
+            </div>
+        </div>
+        <div id="section6"><h2><strong>난쟁이들에 둘러싸여 있다고</strong>거인이 되는 것은 아니다.</h2></div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        var dot = $("#dot > ul > li");
+        var cont = $("#contents > div");
+
+        dot.click(function(e){
+            e.preventDefault();
+            var target = $(this);
+            var index = target.index();
+            //alert(index);
+            var section = cont.eq(index);
+            var offset = section.offset().top;
+            $("html,body").animate({ scrollTop:offset },600,"easeInOutCirc");
+        });
+        
+        var text2 = $("#section2 h2").text().split(" ").join("</span> <span>");
+            text2 = "<span>" + text2 + "</span> ";
+        $("#section2 h2").html(text2);
+        
+        var text3 = $("#section3 h2").text().split("").join("</span><span>");
+            text3 = "<span>" + text3 + "</span> ";
+        $("#section3 h2").html(text3);
+        
+        var text4 = $("#section4 h2").text().split("").join("</span><span>");
+            text4 = "<span>" + text4 + "</span> ";
+        $("#section4 h2").html(text4);
+        
+        var text5 = $("#section5 h2").text().split("").join("</span><span>");
+            text5 = "<span>" + text5 + "</span> ";
+        $("#section5 h2").html(text5);
+
+        $(window).scroll(function(){
+            var wScroll = $(this).scrollTop();
+            
+            if(wScroll >= cont.eq(0).offset().top){
+                dot.removeClass("active");
+                dot.eq(0).addClass("active");
+            }
+            if(wScroll >= cont.eq(1).offset().top){
+                dot.removeClass("active");
+                dot.eq(1).addClass("active");
+            }
+            if(wScroll >= cont.eq(2).offset().top){
+                dot.removeClass("active");
+                dot.eq(2).addClass("active");
+            }
+            if(wScroll >= cont.eq(3).offset().top){
+                dot.removeClass("active");
+                dot.eq(3).addClass("active");
+            }
+            if(wScroll >= cont.eq(4).offset().top){
+                dot.removeClass("active");
+                dot.eq(4).addClass("active");
+            }
+            if(wScroll >= cont.eq(5).offset().top){
+                dot.removeClass("active");
+                dot.eq(5).addClass("active");
+            }
+            
+            //Text Animation
+            if(wScroll >= cont.eq(0).offset().top - $(window).height()/3 ){
+                $("#section1 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section1 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
+            }
+            if(wScroll >= cont.eq(1).offset().top - $(window).height()/3 ){
+                $("#section2 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section2 h2 span").eq(i).addClass("show");
+                    },200*(i+1));
+                });
+            }
+            if(wScroll >= cont.eq(2).offset().top - $(window).height()/3 ){
+                $("#section3 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section3 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
+            }
+            if(wScroll >= cont.eq(3).offset().top - $(window).height()/3 ){
+                $("#section4 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section4 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
+            }
+            if(wScroll >= cont.eq(4).offset().top - $(window).height()/3 ){
+                $("#section5 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section5 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
+            } 
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>Parallax</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <style>
+        /* reset */
+        * {margin:0; padding:0; font-family: 'Lato';}
+        li {list-style: none;}
+        a {text-decoration: none;}
+        
+        /* nav */
+        #nav {position: fixed; left: 0; top: 0px; width: 100%; height: 61px; z-index: 1000; background-color: rgba(255,255,255,0.3); transition: all 0.3s ease;}
+        #nav.on {position: fixed; top: -61px;}
+        #nav h1 {float: left; color: #fff; font-size: 40px; padding: 5px 5px 5px 15px; font-family: 'Abel' }
+        
+        /* dot */
+        #dot {position: fixed; right: 20px; top:50%; z-index: 10; transform: translatey(-50%);}
+        #dot li {
+            position: relative;
+            width: 20px; height: 20px; border-radius:50%; 
+            box-shadow: 0 0 0 2px rgba(255,255,255,0);
+            margin: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+        #dot li a { 
+            background-color: rgba(255,255,255,0.7);
+            width: 100%; height: 100%;
+            position: absolute; top:0; left: 0;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        #dot li.active {box-shadow: 0 0 0 2px rgba(255,255,255,1);}
+        #dot li.active a {transform: scale(0.4);}
+        #dot li a em {display: none;}   
+        
+        /* contents */
+        #contents {text-align: center; color: #fff;}
+        #contents > div {height: 100vh; display: flex; justify-content : center; align-items : center;}
+        #contents > div h2 {font-size: 70px; font-weight: 200; text-transform: uppercase;}
+        #contents > div h2 strong {font-weight: 700; font-style: italic;}
+        
+        /* section */
+        #section3 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
+        #section2 {background:radial-gradient(ellipse farthest-corner at center bottom, #3AA17E, #00537E);}
+        #section4 {background:radial-gradient(ellipse farthest-corner at center top, #29ABE2, #4F00BC);}
+        #section5 {background:radial-gradient(ellipse farthest-corner at center top, #FF5300, #45145A);}
+        #section6 {background:radial-gradient(ellipse farthest-corner at center bottom, #852D91, #312A6C);}
+        #section1 {background:radial-gradient(ellipse farthest-corner at center top, #FBB03B, #D4145A);}
+        
+        /* text animation */
+        /* https://daneden.github.io/animate.css/ */
+        #contents > div h2 {transition: all 0.6s ease-in-out;}
+        #section1 h2 {opacity: 0;}
+        #section2 h2 {opacity: 0;}
+        #section3 h2 {opacity: 0;}
+        #section4 h2 {opacity: 0;}
+        #section5 h2 {opacity: 0;}
+        #section6 h2 {opacity: 0;}
+        #contents > div.show h2 {transform: none;}
+        #section1.show h2 {opacity: 1; animation: bounceInRight 1s;}
+        #section2.show h2 {opacity: 1; animation: rubberBand 1s;}
+        #section3.show h2 {opacity: 1; animation: zoomInUp 1s;}
+        #section4.show h2 {opacity: 1; animation: flipInX 1s;}
+        #section5.show h2 {opacity: 1; animation: jello 1s;}
+        #section6.show h2 {opacity: 1; animation: rollIn 1s;}
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <h1>WEB'S</h1>
+    </nav>
+    
+    <div id="dot">
+        <ul>
+            <li class="active"><a href="#"><em>menu1</em></a></li>
+            <li><a href="#"><em>menu2</em></a></li>
+            <li><a href="#"><em>menu3</em></a></li>
+            <li><a href="#"><em>menu4</em></a></li>
+            <li><a href="#"><em>menu5</em></a></li>
+            <li><a href="#"><em>menu6</em></a></li>
+        </ul>
+    </div>
+
+    <div id="contents">
+        <div id="section1"><h2><strong>장점을 보고 반했으면</strong><br>단점을 보고 돌아서지 마라.</h2></div>
+        <div id="section2"><h2><strong>어제와 똑같이 살면서</strong><br>다른 미래를 기대하는 것은<br>정신병 초기 증세다.</h2></div>
+        <div id="section3"><h2><strong>모든 기회에는 어려움이 있고</strong><br>모든 어려움에는 기회가 있다.</h2></div>
+        <div id="section4"><h2><strong>노는 건 지겨울 수 없다.</strong><br>돈 없이 노는게 지겹지</h2></div>
+        <div id="section5"><h2>행복은 지배해야 하고<strong><br>불행은 극복해야 한다.</strong></h2></div>
+        <div id="section6"><h2><strong>왜 살아야 하는지 아는 사람은</strong><br>그 어떤 상황도 견딜 수 있다.</h2></div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        var dot = $("#dot > ul > li");
+        var cont = $("#contents > div");
+
+        dot.click(function(e){
+            e.preventDefault();
+            var target = $(this);
+            var index = target.index();
+            //alert(index);
+            var section = cont.eq(index);
+            var offset = section.offset().top;
+            $("html,body").animate({ scrollTop:offset },600,"easeInOutCirc");
+        });
+
+        $(window).scroll(function(){
+            var wScroll = $(this).scrollTop();
+            
+            if(wScroll >= cont.eq(0).offset().top){
+                dot.removeClass("active");
+                dot.eq(0).addClass("active");
+            }
+            if(wScroll >= cont.eq(1).offset().top){
+                dot.removeClass("active");
+                dot.eq(1).addClass("active");
+            }
+            if(wScroll >= cont.eq(2).offset().top){
+                dot.removeClass("active");
+                dot.eq(2).addClass("active");
+            }
+            if(wScroll >= cont.eq(3).offset().top){
+                dot.removeClass("active");
+                dot.eq(3).addClass("active");
+            }
+            if(wScroll >= cont.eq(4).offset().top){
+                dot.removeClass("active");
+                dot.eq(4).addClass("active");
+            }
+            if(wScroll >= cont.eq(5).offset().top){
+                dot.removeClass("active");
+                dot.eq(5).addClass("active");
+            }
+            
+            //Text Animation
+            if(wScroll >= cont.eq(0).offset().top - $(window).height()/3 ){
+                cont.eq(0).addClass("show");
+            }
+            if(wScroll >= cont.eq(1).offset().top - $(window).height()/3 ){
+                cont.eq(1).addClass("show");
+            }
+            if(wScroll >= cont.eq(2).offset().top - $(window).height()/3 ){
+                cont.eq(2).addClass("show");
+            }
+            if(wScroll >= cont.eq(3).offset().top - $(window).height()/3 ){
+                cont.eq(3).addClass("show");
+            }
+            if(wScroll >= cont.eq(4).offset().top - $(window).height()/3 ){
+                cont.eq(4).addClass("show");
+            }
+            if(wScroll >= cont.eq(5).offset().top - $(window).height()/3 ){
+                cont.eq(5).addClass("show");
+            }            
+            
+        });
+        
+    </script>
+</body>
+</html>

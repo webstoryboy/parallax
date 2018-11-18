@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+
+    <title>Parallax</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <style>
+        /* reset */
+        * {margin:0; padding:0; font-family: 'Lato';}
+        li {list-style: none;}
+        a {text-decoration: none;}
+        
+        /* nav */
+        #nav {position: fixed; left: 0; top: 0px; width: 100%; height: 61px; z-index: 1000; background-color: rgba(255,255,255,0.3); transition: all 0.3s ease;}
+        #nav.on {position: fixed; top: -61px;}
+        #nav h1 {float: left; color: #fff; font-size: 40px; padding: 5px 5px 5px 15px; font-family: 'Abel' }
+        
+        /* dot */
+        #dot {position: fixed; right: 20px; top:50%; transform: translatey(-50%);}
+        #dot li a {color: #fff; text-decoration: none; width: 20px; height: 20px; background:rgba(255,255,255,0.5); display: block; margin: 8px; border-radius: 50%;}
+        #dot li a em {display: none;}
+        #dot li.active a {background:rgba(255,255,255,1);}
+        
+        /* contents */
+        #contents {text-align: center; color: #fff;}
+        #contents > div {height: 100vh; line-height: 100vh;}
+        #contents > div h2 {font-size: 70px; font-weight: 200; text-transform: uppercase;}
+        #contents > div h2 strong {font-weight: 700; font-style: italic;}
+        
+        /* section */
+        #section1 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
+        #section2 {background:radial-gradient(ellipse farthest-corner at center bottom, #3AA17E, #00537E);}
+        #section3 {background:radial-gradient(ellipse farthest-corner at center top, #29ABE2, #4F00BC);}
+        #section4 {background:radial-gradient(ellipse farthest-corner at center top, #FF5300, #45145A);}
+        #section5 {background:radial-gradient(ellipse farthest-corner at center bottom, #852D91, #312A6C);}
+        #section6 {background:radial-gradient(ellipse farthest-corner at center top, #FBB03B, #D4145A);}
+    
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <h1>WEB'S</h1>
+        <div class="mNav">
+            <div class="icon-wrap">
+                <div class="icon"></div>
+            </div>
+        </div> 
+    </nav>
+    
+    <div id="dot">
+        <ul>
+            <li class="active"><a href="#"><em>menu1</em></a></li>
+            <li><a href="#"><em>menu2</em></a></li>
+            <li><a href="#"><em>menu3</em></a></li>
+            <li><a href="#"><em>menu4</em></a></li>
+            <li><a href="#"><em>menu5</em></a></li>
+            <li><a href="#"><em>menu6</em></a></li>
+        </ul>
+    </div>
+
+    <div id="contents">
+        <div id="section1"><h2>언어의 한계가 곧 <strong>자기 세계의 한계다.</strong></h2></div>
+        <div id="section2"><h2><strong>교육은</strong> 최상의 노후 대비책이다.</h2></div>
+        <div id="section3"><h2>계획 없는 목표는 한낱 <strong>꿈에 불과하다.</strong></h2></div>
+        <div id="section4"><h2>용기란 공포를 1분 더 <strong>참는 것이다.</strong></h2></div>
+        <div id="section5"><h2><strong>욕망을</strong> 이성의 지배 하에 두어라.</h2></div>
+        <div id="section6"><h2>교육의 위대한 목표는 앎이 아니라 <strong>행동이다.</strong></h2></div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        var dot = $("#dot > ul > li");
+        var cont = $("#contents > div");
+
+        dot.click(function(e){
+            e.preventDefault();
+            var target = $(this);
+            var index = target.index();
+            //alert(index);
+            var section = cont.eq(index);
+            var offset = section.offset().top;
+            $("html,body").animate({ scrollTop:offset },600,"easeInBounce");
+        });
+
+        $(window).scroll(function(){
+            var wScroll = $(this).scrollTop();
+            
+            if(wScroll >= cont.eq(0).offset().top){
+                dot.removeClass("active");
+                dot.eq(0).addClass("active");
+            }
+            if(wScroll >= cont.eq(1).offset().top){
+                dot.removeClass("active");
+                dot.eq(1).addClass("active");
+            }
+            if(wScroll >= cont.eq(2).offset().top){
+                dot.removeClass("active");
+                dot.eq(2).addClass("active");
+            }
+            if(wScroll >= cont.eq(3).offset().top){
+                dot.removeClass("active");
+                dot.eq(3).addClass("active");
+            }
+            if(wScroll >= cont.eq(4).offset().top){
+                dot.removeClass("active");
+                dot.eq(4).addClass("active");
+            }
+            if(wScroll >= cont.eq(5).offset().top){
+                dot.removeClass("active");
+                dot.eq(5).addClass("active");
+            }
+        });
+        
+    </script>
+</body>
+</html>
