@@ -109,7 +109,7 @@
             //alert(index);
             var section = cont.eq(index);
             var offset = section.offset().top;
-            $("html,body").animate({ scrollTop:offset },600,"easeInOutCirc");
+            $("html,body").animate({ scrollTop:offset },600,"easeInOutExpo");
         });
 
         $(window).scroll(function(){
@@ -159,9 +159,7 @@
             if(wScroll >= cont.eq(5).offset().top - $(window).height()/3 ){
                 cont.eq(5).addClass("show");
             }            
-            
         });
-        
     </script>
 </body>
 </html>

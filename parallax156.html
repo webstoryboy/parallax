@@ -100,7 +100,7 @@
             //alert(index);
             var section = cont.eq(index);
             var offset = section.offset().top;
-            $("html,body").animate({ scrollTop:offset },600,"easeInBounce");
+            $("html,body").animate({ scrollTop:offset },600,"easeInOutExpo");
         });
 
         $(window).scroll(function(){
