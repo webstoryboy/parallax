@@ -56,8 +56,7 @@
         /* container */
         .container {width: 1200px; margin: 0 auto;}
         
-        /* text animation */
-        /* https://daneden.github.io/animate.css/ */        
+        /* text animation */       
         #section1 h2 span {opacity:0; transition: all 0.6s ease;}
         #section1 h2 span.show {opacity:1;}
         
@@ -66,31 +65,15 @@
         
         #section3 h2 span {opacity:0; transition: all 0.6s ease;}
         #section3 h2 span.show {opacity:1;}
-                
-        #section4 h2 span {opacity:0; transition: opacity 0.6s ease;}
-        #section4 h2 span.show {opacity:1; animation: ani4 .35s ease;}
+
+        #section4 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section4 h2 span.show {opacity:1;}
         
-        #section5 h2 span {opacity:0; transition: opacity 0.6s ease; display: inline-block; margin-right: 5px;}
-        #section5 h2 span.show {opacity:1; animation: zoomInDown .35s ease;}
+        #section5 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section5 h2 span.show {opacity:1;}
         
-        @keyframes ani3 {
-            0% {transform: translate(-150px, -50px) scale(2);}
-            60% {transform: translate(0px, 20px) rotate(-180deg) scale(.5);}
-            100% {transform: translate(0) rotate(0) scale(1);}
-        }
-        @keyframes ani4 {
-            0% {transform: translate(0px, 0) scale(0);}
-            60% {transform: translate(0px, 0) scale(1); color:#b10e81;}
-            80% {transform: translate(0px, 0) scale(1); color:#b10e81;}
-            99% {transform: translate(0) scale(1.2); color:#00f0ff;}
-            100% {transform: translate(0) scale(1); color:#fff;}
-        }
-        @keyframes ani5 {
-            0% {transform: translate(0, -100px) rotate(360deg) scale(0);}
-            30% {transform: translate(0, -50px) rotate(180deg) scale(1);}
-            60% {transform: translate(0, 20px) rotate(0) scale(0.8);}
-            100% {transform: translate(0) rotate(0) scale(1);}
-          }
+        #section6 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section6 h2 span.show {opacity:1;}
     </style>
 </head>
 <body>
@@ -112,7 +95,7 @@
     <div id="contents">
         <div id="section1">
             <div>
-                <h2><span>바</span><span>쁘</span><span>게</span> <span>살</span><span>던</span><span>가</span> <span>바</span><span>쁘</span><span>게</span> <span>죽</span><span>던</span><span>가</span></h2>
+                <h2>바쁘게 살던가! 바쁘게 죽던가!</h2>
             </div>
         </div>
         <div id="section2">
@@ -135,7 +118,11 @@
                 <h2>항상 이길 수는 없지만 항상 배울 수는 있습니다.</h2>
             </div>
         </div>
-        <div id="section6"><h2><strong>난쟁이들에 둘러싸여 있다고</strong>거인이 되는 것은 아니다.</h2></div>
+        <div id="section6">
+            <div class="container">
+                <h2>난쟁이들에 둘러싸여 있다고 거인이 되는 것은 아니다.</h2>
+            </div>
+        </div>
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -154,22 +141,33 @@
             $("html,body").animate({ scrollTop:offset },600,"easeInOutExpo");
         });
         
+        
+        //Text Animation
+        var text1 = $("#section1 h2").text().split(" ").join("</span> <span>");
+            text1 = "<span>" + text1 + "</span> ";
+        $("#section1 h2").html(text1);
+
         var text2 = $("#section2 h2").text().split(" ").join("</span> <span>");
             text2 = "<span>" + text2 + "</span> ";
         $("#section2 h2").html(text2);
-        
+
         var text3 = $("#section3 h2").text().split("").join("</span><span>");
             text3 = "<span>" + text3 + "</span> ";
         $("#section3 h2").html(text3);
-        
+
         var text4 = $("#section4 h2").text().split("").join("</span><span>");
             text4 = "<span>" + text4 + "</span> ";
         $("#section4 h2").html(text4);
-        
+
         var text5 = $("#section5 h2").text().split("").join("</span><span>");
             text5 = "<span>" + text5 + "</span> ";
         $("#section5 h2").html(text5);
-
+        
+        var text6 = $("#section6 h2").text().split("").join("</span><span>");
+            text6 = "<span>" + text6 + "</span> ";
+        $("#section6 h2").html(text6);
+        
+        
         $(window).scroll(function(){
             var wScroll = $(this).scrollTop();
             
@@ -198,7 +196,6 @@
                 dot.eq(5).addClass("active");
             }
             
-            //Text Animation
             if(wScroll >= cont.eq(0).offset().top - $(window).height()/3 ){
                 $("#section1 h2 span").each(function(i){
                     setTimeout(function(){
@@ -210,7 +207,7 @@
                 $("#section2 h2 span").each(function(i){
                     setTimeout(function(){
                         $("#section2 h2 span").eq(i).addClass("show");
-                    },200*(i+1));
+                    },100*(i+1));
                 });
             }
             if(wScroll >= cont.eq(2).offset().top - $(window).height()/3 ){
@@ -231,6 +228,13 @@
                 $("#section5 h2 span").each(function(i){
                     setTimeout(function(){
                         $("#section5 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
+            }
+            if(wScroll >= cont.eq(5).offset().top - $(window).height()/3 ){
+                $("#section6 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section6 h2 span").eq(i).addClass("show");
                     },100*(i+1));
                 });
             } 
