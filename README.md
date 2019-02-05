@@ -21,6 +21,7 @@ Parallax Totorial Site
     <li><a href="http://wtss.tistory.com/165">12. 패럴럭스 배우기 - Text Animation2 : animate.css</a></li>
     <li><a href="http://wtss.tistory.com/166">13. 패럴럭스 배우기 - Text Animation3 : letter css</a></li>
     <li><a href="http://wtss.tistory.com/167">14. 패럴럭스 배우기 - Text Animation4 : letter js</a></li>
+    <li><a href="http://wtss.tistory.com/168">15. 패럴럭스 배우기 - Scroll Down Button</a></li>
   </ul>
 </div>
 
