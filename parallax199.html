@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>Parallax : Block Reveal Effect</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,700,900" >
+    <style>
+        /* reset */
+        * {margin:0; padding:0; }
+        *, *::after, *::before {box-sizing: border-box;}
+        li {list-style: none;}
+        a {text-decoration: none;}
+        
+        /* nav */
+        #nav {position: fixed; left: 0; top: 0px; width: 100%; height: 61px; z-index: 1000; background-color: rgba(255,255,255,0.3); transition: all 0.3s ease;}
+        #nav.on {position: fixed; top: -61px;}
+        #nav h1 {float: left; color: #000; font-size: 40px; padding: 5px 5px 5px 15px; font-family: 'Abel' }
+        
+        /* contents */
+        #contents {text-align: center; color: #fff;}
+        
+        /* container */
+        .container {width: 1200px; margin: 0 auto;}
+        
+        /* section */
+        .section.s1 {background-color: #d0cfc5;}
+        .section.s2 {background-color: #ccc;}
+        .section.s3 {background-color: #ddd;}
+        .section.s4 {background-color: #eee;}
+        .section.s5 {background-color: #ddd;}
+        .section.s6 {background-color: #ccc;}
+        
+        .section.s1 {position: relative; overflow: hidden; text-align: center;}
+        .section.s1 .sec1_text {padding: 15vw 5vw 10vw 5vw; font-size: 8vw; line-height: 1.2; margin: auto; color: #141417; font-family: 'Poppins', sans-serif; }
+
+        .section {overflow: hidden; flex-direction: row; display: flex; flex-wrap: wrap; align-items: center; color: #141417; height: 100vh; min-height: 600px; font-family: 'Poppins', sans-serif;}
+        .section .sec_text {width: 50vw; font-size: 6vw; line-height: 1.2; text-align: right; padding: 0 0 0 2em;}
+        .section .sec_text.title_left {margin-left: -18vw;}
+        .section .sec_img {width: 50vw;}
+        .section img {width: 100%;}
+        
+        .section .sec_text {flex: none; position: relative; z-index: 2; display: inline-block; white-space: nowrap;}
+        .section .sec_text .st1 {margin-top: 160px; } 
+        .section .sec_text .st2 { }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <h1>WEB'S</h1>
+    </nav>
+
+    <main>
+        <section class="section s1">
+            <h2 class="sec1_text">
+                <div class="txt1">Parallax Scrolling</div>
+                <div class="txt2">Effects</div>
+            </h2>
+        </section>
+        <!-- //section1 -->
+        
+        <section class="section s2">
+            <h2 class="sec_text">
+                <div class="st1 scrolled1">funky foxes love1</div>
+                <div class="st2 scrolled2">technology</div>
+            </h2>
+            <figure class="sec_img">
+                <div class="si1 scrolled3"><img src="https://tympanus.net/Development/BlockRevealers/img/1.jpg" alt=""></div>
+            </figure>
+        </section>
+        <!-- //section2 -->
+        
+        <section class="section s3">
+            <figure class="sec_img">
+                <div class="si1 scrolled3"><img src="https://tympanus.net/Development/BlockRevealers/img/2.jpg" alt=""></div>
+            </figure>
+            <h2 class="sec_text title_left">
+                <div class="st1 scrolled1">funky foxes love1</div>
+                <div class="st2 scrolled2">technology</div>
+            </h2>
+        </section>
+        <!-- //section3 -->
+        
+        <section class="section s4">
+            <h2 class="sec_text">
+                <div class="st1 scrolled1">funky foxes love1</div>
+                <div class="st2 scrolled2">technology</div>
+            </h2>
+            <figure class="sec_img">
+                <div class="si1 scrolled3"><img src="https://tympanus.net/Development/BlockRevealers/img/3.jpg" alt=""></div>
+            </figure>
+        </section>
+        <!-- //section4 -->
+        
+        <section class="section s5">
+            <figure class="sec_img">
+                <div class="si1 scrolled3"><img src="https://tympanus.net/Development/BlockRevealers/img/4.jpg" alt=""></div>
+            </figure>
+            <h2 class="sec_text title_left">
+                <div class="st1 scrolled1">funky foxes love1</div>
+                <div class="st2 scrolled2">technology</div>
+            </h2>
+        </section>
+        <!-- //section5 -->
+        
+        <section class="section s6">
+            <h2 class="sec_text">
+                <div class="st1 scrolled1">funky foxes love1</div>
+                <div class="st2 scrolled2">technology</div>
+            </h2>
+            <figure class="sec_img">
+                <div class="si1 scrolled3"><img src="https://tympanus.net/Development/BlockRevealers/img/5.jpg" alt=""></div>
+            </figure>
+        </section>
+        <!-- //section6 -->
+    </main>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+
+        $(window).scroll(function(e){
+            var wScroll = $(window).scrollTop();
+            
+            var offset2 = (wScroll- $(".s2 .scrolled1").offset().top) * 0.5 ;
+            var offset3 = (wScroll- $(".s2 .scrolled2").offset().top) * 0.2 ;  
+
+            var offset4 = (wScroll- $(".s3 .scrolled1").offset().top) * 0.5 ;
+            var offset5 = (wScroll- $(".s3 .scrolled2").offset().top) * 0.2 ; 
+
+            var offset6 = (wScroll- $(".s4 .scrolled1").offset().top) * 0.5 ;
+            var offset7 = (wScroll- $(".s4 .scrolled2").offset().top) * 0.2 ; 
+            
+            var offset8 = (wScroll- $(".s5 .scrolled1").offset().top) * 0.5 ;
+            var offset9 = (wScroll- $(".s5 .scrolled2").offset().top) * 0.2 ; 
+            
+            var offset10 = (wScroll- $(".s6 .scrolled1").offset().top) * 0.5 ;
+            var offset11 = (wScroll- $(".s6 .scrolled2").offset().top) * 0.2 ; 
+
+            $(".s2 .scrolled1").css({'transform' : 'translateY('+ offset2 +'px)'});
+            $(".s2 .scrolled2").css({'transform' : 'translateY('+ offset3 +'px)'});
+            
+            $(".s3 .scrolled1").css({'transform' : 'translateY('+ offset4 +'px)'});
+            $(".s3 .scrolled2").css({'transform' : 'translateY('+ offset5 +'px)'});
+            
+            $(".s4 .scrolled1").css({'transform' : 'translateY('+ offset6 +'px)'});
+            $(".s4 .scrolled2").css({'transform' : 'translateY('+ offset7 +'px)'});
+            
+            $(".s5 .scrolled1").css({'transform' : 'translateY('+ offset8 +'px)'});
+            $(".s5 .scrolled2").css({'transform' : 'translateY('+ offset9 +'px)'});
+            
+            $(".s6 .scrolled1").css({'transform' : 'translateY('+ offset10 +'px)'});
+            $(".s6 .scrolled2").css({'transform' : 'translateY('+ offset11 +'px)'});
+         }); 
+    </script>
+</body>
+</html>
+
+
+
+
+
+
