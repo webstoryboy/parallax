@@ -39,9 +39,17 @@ Parallax Totorial Site
     <li><a href="https://webstoryboy.github.io/parallax/parallax161.html">parallax161.html</a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax162.html">parallax162.html</a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax163.html">parallax163.html</a></li>
-    <li><a href="https://webstoryboy.github.io/parallax/parallax164.html">parallax164.html</a></li>
-    <li><a href="https://webstoryboy.github.io/parallax/parallax165.html">parallax165.html</a></li>
-    <li><a href="https://webstoryboy.github.io/parallax/parallax166.html">parallax166.html</a></li>
-    <li><a href="https://webstoryboy.github.io/parallax/parallax167.html">parallax167.html</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax164.html">parallax164.html - 기본</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax165.html">parallax165.html - ainmate.css</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax166.html">parallax166.html - 한글자씩(CSS,jQuery)</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax167.html">parallax167.html - 한단어씩</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax170.html">parallax170.html - 스크롤 다운 버튼</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax199.html">parallax199.html - 이미지 스크롤1</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax200.html">parallax200.html - 이미지 스크롤2</a></li>
   </ul>
 </div>
+
+
+
+
+
