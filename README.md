@@ -44,6 +44,7 @@ Parallax Totorial Site
     <li><a href="https://webstoryboy.github.io/parallax/parallax166.html">parallax166.html - 한글자씩(CSS,jQuery)</a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax167.html">parallax167.html - 한단어씩</a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax170.html">parallax170.html - 스크롤 다운 버튼</a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax198.html">parallax196.html - 메인 배경 이질감 주기</a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax198.html">parallax197.html - 배경 서서히 없어지기</a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax198.html">parallax198.html - 이미지 스크롤에 따라 위치 설정</a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax199.html">parallax199.html - 이미지 스크롤 - 이질감 느끼게 </a></li>
