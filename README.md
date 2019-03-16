@@ -46,7 +46,7 @@ Parallax Totorial Site
     <li><a href="https://webstoryboy.github.io/parallax/parallax170.html">parallax170.html - 스크롤 다운 버튼</a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax199.html">parallax199.html - 이미지 스크롤1</a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax199.html">parallax199.html - 이미지 스크롤 - 이질감 느끼게 </a></li>
-    <li><a href="https://webstoryboy.github.io/parallax/parallax199_rellax.js.html">parallax199_rellax.js.html - 이미지 스크롤 - rellax.js </a></li>
+    <li><a href="https://webstoryboy.github.io/parallax/parallax201.html">parallax201.html - 이미지 스크롤 - rellax.js </a></li>
     <li><a href="https://webstoryboy.github.io/parallax/parallax200.html">parallax200.html - 이미지 스크롤 - 한블록씩 나오기</a></li>
   </ul>
 </div>
