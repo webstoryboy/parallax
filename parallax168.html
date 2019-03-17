@@ -3,352 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-    <title>Parallax : Scroll</title>
+    <title>Parallax</title>
     
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <style>
         /* reset */
         * {margin:0; padding:0; font-family: 'Lato';}
         li {list-style: none;}
-        a {text-decoration: none; font-family: 'Abel'}
+        a {text-decoration: none;}
         
         /* nav */
         #nav {position: fixed; left: 0; top: 0px; width: 100%; height: 61px; z-index: 1000; background-color: rgba(255,255,255,0.3); transition: all 0.3s ease;}
         #nav.on {position: fixed; top: -61px;}
         #nav h1 {float: left; color: #fff; font-size: 40px; padding: 5px 5px 5px 15px; font-family: 'Abel' }
         
+        /* dot */
+        #dot {position: fixed; right: 20px; top:50%; z-index: 10; transform: translatey(-50%);}
+        #dot li {
+            position: relative;
+            width: 20px; height: 20px; border-radius:50%; 
+            box-shadow: 0 0 0 2px rgba(255,255,255,0);
+            margin: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+        #dot li a { 
+            background-color: rgba(255,255,255,0.7);
+            width: 100%; height: 100%;
+            position: absolute; top:0; left: 0;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        #dot li.active {box-shadow: 0 0 0 2px rgba(255,255,255,1);}
+        #dot li.active a {transform: scale(0.4);}
+        #dot li a em {display: none;}   
+        
         /* contents */
         #contents {text-align: center; color: #fff;}
-        #contents > div {height: 100vh; display: flex; justify-content : center; align-items : center; position: relative;}
+        #contents > div {height: 100vh; display: flex; justify-content : center; align-items : center;}
         #contents > div h2 {font-size: 70px; font-weight: 200; text-transform: uppercase;}
-        #contents > div h2 strong {font-weight: 700; font-style: italic; display: block;}
+        #contents > div h2 strong {font-weight: 700; font-style: italic;}
         
         /* section */
-        #section1 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
+        #section3 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
         #section2 {background:radial-gradient(ellipse farthest-corner at center bottom, #3AA17E, #00537E);}
-        #section3 {background:radial-gradient(ellipse farthest-corner at center top, #FBB03B, #D4145A);}
         #section4 {background:radial-gradient(ellipse farthest-corner at center top, #29ABE2, #4F00BC);}
         #section5 {background:radial-gradient(ellipse farthest-corner at center top, #FF5300, #45145A);}
-        #section6 {background:radial-gradient(ellipse farthest-corner at center bottom, #852D91, #312A6C);}
-        #section7 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
-        #section8 {background:radial-gradient(ellipse farthest-corner at center bottom, #3AA17E, #00537E);}
-        #section9 {background:radial-gradient(ellipse farthest-corner at center top, #FBB03B, #D4145A);}
-              
-        /* container */
-        .container {width: 1200px; margin: 0 auto;}
+        #section1 {background:radial-gradient(ellipse farthest-corner at center bottom, #852D91, #312A6C);}
+        #section6 {background:radial-gradient(ellipse farthest-corner at center top, #FBB03B, #D4145A);}
         
-        /* scroll */
-        .scroll {position: absolute; bottom: 20px; left: 50%; z-index: 2; display: inline-block; transform: translate(-50%, 0); color: #fff; transition: opacity .3s;}
-        .scroll:hover {opacity: .5;}
-        
-        #section1 a {padding-top: 60px;}
-        #section1 a span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 24px;
-            height: 24px;
-            margin-left: -12px;
-            border-left: 1px solid #fff;
-            border-bottom: 1px solid #fff;
-            transform: rotate(-45deg);
-            box-sizing: border-box;
-        }
-
-        #section2 a {padding-top: 60px;}
-        #section2 a span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 46px;
-            height: 46px;
-            margin-left: -23px;
-            border: 1px solid #fff;
-            border-radius: 100%;
-            box-sizing: border-box;
-        }
-        #section2 a span::after {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            content: '';
-            width: 16px;
-            height: 16px;
-            margin: -12px 0 0 -8px;
-            border-left: 1px solid #fff;
-            border-bottom: 1px solid #fff;
-            transform: rotate(-45deg);
-            box-sizing: border-box;
-        }
-
-        #section3 a {padding-top: 60px;}
-        #section3 a span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 46px;
-            height: 46px;
-            margin-left: -23px;
-            border: 1px solid #fff;
-            border-radius: 100%;
-            box-sizing: border-box;
-        }
-        #section3 a span::after {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            content: '';
-            width: 16px;
-            height: 16px;
-            margin: -12px 0 0 -8px;
-            border-left: 1px solid #fff;
-            border-bottom: 1px solid #fff;
-            -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-            box-sizing: border-box;
-        }
-        #section3 a span::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            content: '';
-            width: 44px;
-            height: 44px;
-            box-shadow: 0 0 0 0 rgba(255,255,255,.1);
-            border-radius: 100%;
-            opacity: 0;
-            animation: sdb03 3s infinite;
-            box-sizing: border-box;
-        }
-        @keyframes sdb03 {
-            0% {opacity: 0;}
-            30% {opacity: 1;}
-            60% {box-shadow: 0 0 0 60px rgba(255,255,255,.1); opacity: 0;}
-            100% {opacity: 0;}
-        }
-
-        #section4 a {padding-top: 60px;}
-        #section4 a span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 24px;
-            height: 24px;
-            margin-left: -12px;
-            border-left: 1px solid #fff;
-            border-bottom: 1px solid #fff;
-            transform: rotate(-45deg);
-            animation: sdb04 2s infinite;
-            box-sizing: border-box;
-        }
-        @keyframes sdb04 {
-            0% {transform: rotate(-45deg) translate(0, 0);}
-            20% {transform: rotate(-45deg) translate(-10px, 10px);}
-            40% {transform: rotate(-45deg) translate(0, 0);}
-        }
-
-        #section5 a {padding-top: 70px;}
-        #section5 a span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 24px;
-            height: 24px;
-            margin-left: -12px;
-            border-left: 1px solid #fff;
-            border-bottom: 1px solid #fff;
-            transform: rotate(-45deg);
-            animation: sdb05 1.5s infinite;
-            box-sizing: border-box;
-        }
-
-        @keyframes sdb05 {
-            0% {transform: rotate(-45deg) translate(0, 0); opacity: 0;}
-            50% {opacity: 1;}
-            100% {transform: rotate(-45deg) translate(-20px, 20px); opacity: 0;}
-        }
-
-        #section6 a {padding-top: 70px;}
-        #section6 a span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 24px;
-            height: 24px;
-            margin-left: -12px;
-            border-left: 1px solid #fff;
-            border-bottom: 1px solid #fff;
-            transform: rotateZ(-45deg);
-            animation: sdb06 1.5s infinite;
-            box-sizing: border-box;
-        }
-        @keyframes sdb06 {
-            0% {transform: rotateY(0) rotateZ(-45deg) translate(0, 0);opacity: 0;}
-            50% {opacity: 1;}
-            100% {transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);opacity: 0;}
-        }
-
-        #section7 a {padding-top: 80px;}
-        #section7 a span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 24px;
-            height: 24px;
-            margin-left: -12px;
-            border-left: 1px solid #fff;
-            border-bottom: 1px solid #fff;
-            transform: rotate(-45deg);
-            animation: sdb07 2s infinite;
-            opacity: 0;
-            box-sizing: border-box;
-        }
-        #section7 a span:nth-of-type(1) {animation-delay: 0s;}
-        #section7 a span:nth-of-type(2) {top: 16px; animation-delay: .15s;}
-        #section7 a span:nth-of-type(3) {top: 32px; animation-delay: .3s;}
-
-        @keyframes sdb07 {
-            0% {opacity: 0;}
-            50% {opacity: 1;}
-            100% {opacity: 0;}
-        }
-
-        #section8 a {padding-top: 60px;}
-        #section8 a span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 30px;
-            height: 50px;
-            margin-left: -15px;
-            border: 2px solid #fff;
-            border-radius: 50px;
-            box-sizing: border-box;
-        }
-        #section8 a span::before {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            content: '';
-            width: 6px;
-            height: 6px;
-            margin-left: -3px;
-            background-color: #fff;
-            border-radius: 100%;
-            box-sizing: border-box;
-        }
-        
-        #section9 a {
-            padding-top: 60px;
-        }
-        #section9 a span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 30px;
-            height: 50px;
-            margin-left: -15px;
-            border: 2px solid #fff;
-            border-radius: 50px;
-            box-sizing: border-box;
-        }
-        #section9 a span::before {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            content: '';
-            width: 6px;
-            height: 6px;
-            margin-left: -3px;
-            background-color: #fff;
-            border-radius: 100%;
-            animation: sdb9 2s infinite;
-            box-sizing: border-box;
-        }
-        @keyframes sdb9 {
-            0% {transform: translate(0, 0); opacity: 0;}
-            40% {opacity: 1;}
-            80% {transform: translate(0, 20px); opacity: 0;}
-            100% {opacity: 0;}
-        }
+        /* text animation */
+        #contents > div h2 {transition: all 0.6s ease-in-out;}
+        #section1 h2 {opacity: 0; transform: translate(0,0)}
+        #section2 h2 {opacity: 0; transform: translate(0,-20%)}
+        #section3 h2 {opacity: 0; transform: translate(-20%,0)}
+        #section4 h2 {opacity: 0; transform: translate(10%,0)}
+        #section5 h2 {opacity: 0; transform: rotate(45deg)}
+        #section6 h2 {opacity: 0; transform: skew(90deg)}
+        #contents > div.show h2 {transform: none;}
+        #section1.show h2 {opacity: 1;}
+        #section2.show h2 {opacity: 1;}
+        #section3.show h2 {opacity: 1;}
+        #section4.show h2 {opacity: 1;}
+        #section5.show h2 {opacity: 1;}
+        #section6.show h2 {opacity: 1;}
     </style>
 </head>
 <body>
     <nav id="nav">
         <h1>WEB'S</h1>
     </nav>
+    
+    <div id="dot">
+        <ul>
+            <li class="active"><a href="#"><em>menu1</em></a></li>
+            <li><a href="#"><em>menu2</em></a></li>
+            <li><a href="#"><em>menu3</em></a></li>
+            <li><a href="#"><em>menu4</em></a></li>
+            <li><a href="#"><em>menu5</em></a></li>
+            <li><a href="#"><em>menu6</em></a></li>
+        </ul>
+    </div>
 
     <div id="contents">
-        <div id="section1">
-            <div class="container">
-                <h2>Scroll Down Button #1</h2>
-                <a href="#section2" class="scroll"><span></span>Scroll</a>
-            </div>
-        </div>
-        <div id="section2">
-            <div class="container">
-                <h2>Scroll Down Button #2</h2>
-                <a href="#section3" class="scroll"><span></span>Scroll</a>
-            </div>
-        </div>
-        <div id="section3">
-            <div class="container">
-                <h2>Scroll Down Button #3</h2>
-                <a href="#section4" class="scroll"><span></span>Scroll</a>
-            </div>
-        </div>
-        <div id="section4">
-            <div class="container">
-                <h2>Scroll Down Button #4</h2>
-                <a href="#section5" class="scroll"><span></span>Scroll</a>
-            </div>
-        </div>
-        <div id="section5">
-            <div class="container">
-                <h2>Scroll Down Button #5</h2>
-                <a href="#section6" class="scroll"><span></span>Scroll</a>
-            </div>
-        </div>
-        <div id="section6">
-            <div class="container">
-                <h2>Scroll Down Button #6</h2>
-                <a href="#section7" class="scroll"><span></span>Scroll</a>
-            </div>
-        </div>
-        <div id="section7">
-            <div class="container">
-                <h2>Scroll Down Button #7</h2>
-                <a href="#section8" class="scroll"><span></span><span></span><span></span>Scroll</a>
-            </div>
-        </div>
-        <div id="section8">
-            <div class="container">
-                <h2>Scroll Down Button #8</h2>
-                <a href="#section9" class="scroll"><span></span>Scroll</a>
-            </div>
-        </div>
-        <div id="section9">
-            <div class="container">
-                <h2>Scroll Down Button #9</h2>
-                <a href="#section1" class="scroll"><span></span>Scroll</a>
-            </div>
-        </div>
+        <div id="section1"><h2><strong>잘 살아라!</strong><br>그게 최고의 복수다.</h2></div>
+        <div id="section2"><h2><strong>꿈을 크게 가지면</strong><br>깨져도 그 조각이 크다.</h2></div>
+        <div id="section3"><h2><strong>꽃이 방안에 있으면</strong><br>벌이 어떻게 찾아가겠어요?</h2></div>
+        <div id="section4"><h2><strong>절망하지 마라</strong><br>종종 열쇠 꾸러미의 마지막 열쇠가<br>자물쇠를 연다.</h2></div>
+        <div id="section5"><h2>하고 싶은 일에는 <strong>방법이 보이고,</strong><br>하기 싫은 일에는 <strong>핑계가 보인다.</strong></h2></div>
+        <div id="section6"><h2><strong>실패는</strong> 삶에서<br>불필요한 것들을 제거해준다.</h2></div>
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
-        $('a[href^="#"]').on('click', function(e){
-			var target = $($(this).attr('href'));
+        var dot = $("#dot > ul > li");
+        var cont = $("#contents > div");
+
+        dot.click(function(e){
+            e.preventDefault();
+            var target = $(this);
+            var index = target.index();
+            //alert(index);
+            var section = cont.eq(index);
+            var offset = section.offset().top;
+            $("html,body").animate({ scrollTop:offset },600,"easeInOutExpo");
+        });
+
+        $(window).scroll(function(){
+            var wScroll = $(this).scrollTop();
             
-			if(target.length){
-				e.preventDefault();
-				$('html, body').animate({scrollTop:target.offset().top}, 400);
-			}
-		});
+            if(wScroll >= cont.eq(0).offset().top){
+                dot.removeClass("active");
+                dot.eq(0).addClass("active");
+            }
+            if(wScroll >= cont.eq(1).offset().top){
+                dot.removeClass("active");
+                dot.eq(1).addClass("active");
+            }
+            if(wScroll >= cont.eq(2).offset().top){
+                dot.removeClass("active");
+                dot.eq(2).addClass("active");
+            }
+            if(wScroll >= cont.eq(3).offset().top){
+                dot.removeClass("active");
+                dot.eq(3).addClass("active");
+            }
+            if(wScroll >= cont.eq(4).offset().top){
+                dot.removeClass("active");
+                dot.eq(4).addClass("active");
+            }
+            if(wScroll >= cont.eq(5).offset().top){
+                dot.removeClass("active");
+                dot.eq(5).addClass("active");
+            }
+            
+            //Text Animation
+            if(wScroll > cont.eq(0).offset().top - $(window).height()/3 ){
+                cont.eq(0).addClass("show");
+            } else {
+                cont.removeClass("show");
+            }
+            if(wScroll > cont.eq(1).offset().top - $(window).height()/3 ){
+                cont.eq(1).addClass("show");
+            } else {
+                cont.removeClass("show");
+            }
+            if(wScroll > cont.eq(2).offset().top - $(window).height()/3 ){
+                cont.eq(2).addClass("show");
+            } else {
+                cont.removeClass("show");
+            }
+            if(wScroll > cont.eq(3).offset().top - $(window).height()/3 ){
+                cont.eq(3).addClass("show");
+            } else {
+                cont.removeClass("show");
+            }
+            if(wScroll > cont.eq(4).offset().top - $(window).height()/3 ){
+                cont.eq(4).addClass("show");
+            } else {
+                cont.removeClass("show");
+            }
+            if(wScroll > cont.eq(5).offset().top - $(window).height()/3 ){
+                cont.eq(5).addClass("show");
+            } else {
+                cont.removeClass("show");
+            }           
+            
+        });
+        
     </script>
 </body>
 </html>

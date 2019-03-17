@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>Parallax : Block Reveal Effect</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,700,900" >
+    <style>
+        /* reset */
+        * {margin:0; padding:0; }
+        *, *::after, *::before {box-sizing: border-box;}
+        li {list-style: none;}
+        a {text-decoration: none;}
+        
+        html {height: 100%; overflow: hidden;}
+        body {
+            perspective: 1px;
+            transform-style: preserve-3d;
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        header {
+            height: 500px; padding: 20%; text-align: center;
+        }
+        header::before {
+            position: absolute;
+            left: 0; top: 0; right: 0; bottom: 0;
+            content: '';
+            display: block;
+            background-image: url(https://tistory3.daumcdn.net/tistory/2808281/skin/images/background05.jpg);
+            background-size: cover;
+            transform: translateZ(-1px) scale(2);
+            z-index: -1;
+            min-height: 500px;
+            overflow: hidden;
+            
+        }
+        
+        /* section */
+        .section1 {height: 1500px; background: #25122d; color: #fff;}
+        .section2 {height: 1500px;}
+        .section3 {height: 1500px;}
+        
+      
+    
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <h1>Parallax Scrolling</h1>
+        <p>Effects</p>
+    </header>
+      
+    <section class="section1">
+        <h2>section1</h2>
+    </section>
+    
+    <section class="section2">
+        <h2>section2</h2>
+    </section>
+    
+    <section class="section3">
+        <h2>section3</h2>
+    </section>
+      
+
+    
+       
+       
+        
+        
+ 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+
+       
+    </script>
+</body>
+</html>
+
+
+
+
+
+

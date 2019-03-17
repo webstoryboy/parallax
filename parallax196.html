@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>Parallax : Block Reveal Effect</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton" >
+    <style>
+        /* reset */
+        * {margin:0; padding:0; }
+        *, *::after, *::before {box-sizing: border-box;}
+        li {list-style: none;}
+        a {text-decoration: none;}
+
+        body{
+            background-color:#fedcc8;
+            transform-style: preserve-3d;
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .effect {position:relative; perspective:100px; height: 100vh; overflow-x:hidden;}
+        .effect .layer {position:absolute; left:0; top:0; bottom:0; right:0;}
+        .effect .layer img {width: 100%; position:absolute; bottom:0; display:block;}
+        .effect .layer.img1 {transform:translateZ(-250px) scale(3.9);}
+        .effect .layer.img2 {transform:translateZ(-200px) scale(3.1);}
+        .effect .layer.img3 {transform:translateZ(-150px) scale(2.5);}
+        .effect .layer.img4 {transform:translateZ(-120px) scale(2.2);}
+        .effect .layer.img5 {transform:translateZ(-80px) scale(1.8);}
+        .effect .layer.img6 {transform:translateZ(-40px) scale(1.4);}
+        .effect .layer.img7 {transform:translateZ(0px)}
+        .cover {background: #25122d; position:absolute; top:100%; right:0; left:0; height: 500px; z-index: 2; opacity: 1}
+        
+        
+        .section1 {height: 500px; background: #25122d; color: #fff;}
+        .section2 {height: 500px;}
+        .section3 {height: 500px;}
+        
+    </style>
+</head>
+<body>
+
+    <header class="effect">
+        <div class="layer img1"><img src="http://dodream77.com/jquery/assets/img/d1.png" alt="" /></div>
+        <div class="layer img2"><img src="http://dodream77.com/jquery/assets/img/d2.png" alt="" /></div>
+        <div class="layer img3"><img src="http://dodream77.com/jquery/assets/img/d3.png" alt="" /></div>
+        <div class="layer img4"><img src="http://dodream77.com/jquery/assets/img/d4.png" alt="" /></div>
+        <div class="layer img5"><img src="http://dodream77.com/jquery/assets/img/d5.png" alt="" /></div>
+        <div class="layer img6"><img src="http://dodream77.com/jquery/assets/img/d6.png" alt="" /></div>
+        <div class="layer img7"><img src="http://dodream77.com/jquery/assets/img/d7.png" alt="" /></div>
+        <div class="cover"></div>
+    </header>
+    
+    <section class="section1">
+        <h2>section1</h2>
+    </section>
+    
+    <section class="section2">
+        <h2>section2</h2>
+    </section>
+    
+    <section class="section3">
+        <h2>section3</h2>
+    </section>
+    
+    
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+
+       
+    </script>
+</body>
+</html>
+
+
+
+
+
+
