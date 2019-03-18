@@ -125,10 +125,31 @@
 
         $(window).scroll(function(){
             var wScroll = $(window).scrollTop();
-            var offset2 = (wScroll- $(".s2").offset().top);
+            var offset2 = (wScroll - $(".s2").offset().top);
+            var offset3 = (wScroll - $(".s3").offset().top);
+            var offset4 = (wScroll - $(".s4").offset().top);
+            var offset5 = (wScroll - $(".s5").offset().top);
+            var offset6 = (wScroll - $(".s6").offset().top);
+            
 
-            if(wScroll >= $(".s2").offset().top / 2 ){
-                $(".si1").css({ 'transform' : 'translate('+ offset2 +'px, -80px)' })
+            if(wScroll >= $(".section.s2").offset().top - $(window).height() ){
+                $(".section.s2 .sec_img").css({ 'transform' : 'translate('+ offset2 +'px, 0px)' })
+            }
+            
+            if(wScroll >= $(".section.s3").offset().top - $(window).height() ){
+                $(".section.s3 .sec_img").css({ 'transform' : 'translate('+ offset3 +'px, 0px)' })
+            }
+            
+            if(wScroll >= $(".section.s4").offset().top - $(window).height() ){
+                $(".section.s4 .sec_img").css({ 'transform' : 'translate(0px,'+ offset4 +'px)' })
+            }
+            
+            if(wScroll >= $(".section.s5").offset().top - $(window).height() ){
+                $(".section.s5 .sec_img").css({ 'transform' : 'translate(0px,'+ offset5 +'px)' })
+            }
+            
+            if(wScroll >= $(".section.s6").offset().top - $(window).height() ){
+                $(".section.s6 .sec_img").css({ 'transform' : 'translate('+ offset6 +'px, 0px)' })
             }
 
             
