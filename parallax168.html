@@ -7,6 +7,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <style>
         /* reset */
         * {margin:0; padding:0; font-family: 'Lato';}
@@ -42,31 +43,37 @@
         #contents {text-align: center; color: #fff;}
         #contents > div {height: 100vh; display: flex; justify-content : center; align-items : center;}
         #contents > div h2 {font-size: 70px; font-weight: 200; text-transform: uppercase;}
-        #contents > div h2 strong {font-weight: 700; font-style: italic;}
+        #contents > div h2 strong {font-weight: 700; font-style: italic; display: block;}
         
         /* section */
-        #section3 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
+        #section1 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
         #section2 {background:radial-gradient(ellipse farthest-corner at center bottom, #3AA17E, #00537E);}
         #section4 {background:radial-gradient(ellipse farthest-corner at center top, #29ABE2, #4F00BC);}
         #section5 {background:radial-gradient(ellipse farthest-corner at center top, #FF5300, #45145A);}
-        #section1 {background:radial-gradient(ellipse farthest-corner at center bottom, #852D91, #312A6C);}
-        #section6 {background:radial-gradient(ellipse farthest-corner at center top, #FBB03B, #D4145A);}
+        #section6 {background:radial-gradient(ellipse farthest-corner at center bottom, #852D91, #312A6C);}
+        #section3 {background:radial-gradient(ellipse farthest-corner at center top, #FBB03B, #D4145A);}
         
-        /* text animation */
-        #contents > div h2 {transition: all 0.6s ease-in-out;}
-        #section1 h2 {opacity: 0; transform: translate(0,0)}
-        #section2 h2 {opacity: 0; transform: translate(0,-20%)}
-        #section3 h2 {opacity: 0; transform: translate(-20%,0)}
-        #section4 h2 {opacity: 0; transform: translate(10%,0)}
-        #section5 h2 {opacity: 0; transform: rotate(45deg)}
-        #section6 h2 {opacity: 0; transform: skew(90deg)}
-        #contents > div.show h2 {transform: none;}
-        #section1.show h2 {opacity: 1;}
-        #section2.show h2 {opacity: 1;}
-        #section3.show h2 {opacity: 1;}
-        #section4.show h2 {opacity: 1;}
-        #section5.show h2 {opacity: 1;}
-        #section6.show h2 {opacity: 1;}
+        /* container */
+        .container {width: 1200px; margin: 0 auto;}
+        
+        /* text animation */       
+        #section1 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section1 h2 span.show {opacity:1;}
+        
+        #section2 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section2 h2 span.show {opacity:1;}
+        
+        #section3 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section3 h2 span.show {opacity:1;}
+
+        #section4 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section4 h2 span.show {opacity:1;}
+        
+        #section5 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section5 h2 span.show {opacity:1;}
+        
+        #section6 h2 span {opacity:0; transition: all 0.6s ease;}
+        #section6 h2 span.show {opacity:1;}
     </style>
 </head>
 <body>
@@ -86,16 +93,41 @@
     </div>
 
     <div id="contents">
-        <div id="section1"><h2><strong>잘 살아라!</strong><br>그게 최고의 복수다.</h2></div>
-        <div id="section2"><h2><strong>꿈을 크게 가지면</strong><br>깨져도 그 조각이 크다.</h2></div>
-        <div id="section3"><h2><strong>꽃이 방안에 있으면</strong><br>벌이 어떻게 찾아가겠어요?</h2></div>
-        <div id="section4"><h2><strong>절망하지 마라</strong><br>종종 열쇠 꾸러미의 마지막 열쇠가<br>자물쇠를 연다.</h2></div>
-        <div id="section5"><h2>하고 싶은 일에는 <strong>방법이 보이고,</strong><br>하기 싫은 일에는 <strong>핑계가 보인다.</strong></h2></div>
-        <div id="section6"><h2><strong>실패는</strong> 삶에서<br>불필요한 것들을 제거해준다.</h2></div>
+        <div id="section1">
+            <div>
+                <h2 class="dd">바쁘게 살던가! 바쁘게 죽던가!</h2>
+            </div>
+        </div>
+        <div id="section2">
+            <div class="container">
+                <h2>편안함이 끝나고 궁핍이 시작될 때 인생의 가름침이 시작된다.</h2>
+            </div>
+        </div>
+        <div id="section3">
+            <div class="container">
+                <h2>시간이 약이면 뭐해! 마음이 기억하는데~</h2>
+            </div>
+        </div>
+        <div id="section4">
+            <div class="container">
+                <h2>예쁜 꽃을 찍으려면 예쁜 꽃을 볼 줄 알아야지.</h2>
+            </div>
+        </div>
+        <div id="section5">
+            <div class="container">
+                <h2>항상 이길 수는 없지만 항상 배울 수는 있습니다.</h2>
+            </div>
+        </div>
+        <div id="section6">
+            <div class="container">
+                <h2>난쟁이들에 둘러싸여 있다고 거인이 되는 것은 아니다.</h2>
+            </div>
+        </div>
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
     <script>
         var dot = $("#dot > ul > li");
         var cont = $("#contents > div");
@@ -109,7 +141,34 @@
             var offset = section.offset().top;
             $("html,body").animate({ scrollTop:offset },600,"easeInOutExpo");
         });
+        
+        
+        //Text Animation
+        var text1 = $("#section1 h2").text().split(" ").join("</span> <span>");
+            text1 = "<span>" + text1 + "</span> ";
+        $("#section1 h2").html(text1);
 
+        var text2 = $("#section2 h2").text().split(" ").join("</span> <span>");
+            text2 = "<span>" + text2 + "</span> ";
+        $("#section2 h2").html(text2);
+
+        var text3 = $("#section3 h2").text().split("").join("</span><span>");
+            text3 = "<span>" + text3 + "</span> ";
+        $("#section3 h2").html(text3);
+
+        var text4 = $("#section4 h2").text().split("").join("</span><span>");
+            text4 = "<span>" + text4 + "</span> ";
+        $("#section4 h2").html(text4);
+
+        var text5 = $("#section5 h2").text().split("").join("</span><span>");
+            text5 = "<span>" + text5 + "</span> ";
+        $("#section5 h2").html(text5);
+        
+        var text6 = $("#section6 h2").text().split("").join("</span><span>");
+            text6 = "<span>" + text6 + "</span> ";
+        $("#section6 h2").html(text6);
+        
+        
         $(window).scroll(function(){
             var wScroll = $(this).scrollTop();
             
@@ -138,38 +197,52 @@
                 dot.eq(5).addClass("active");
             }
             
-            //Text Animation
-            if(wScroll > cont.eq(0).offset().top - $(window).height()/3 ){
-                cont.eq(0).addClass("show");
-            } else {
-                cont.removeClass("show");
+            var tl = new TimelineLite();
+            var dd = $(".dd > span");
+
+            function ddd(){
+                gsap.to(dd, 1 , {opacity:"1", left:"90%", scale:"3" });
             }
-            if(wScroll > cont.eq(1).offset().top - $(window).height()/3 ){
-                cont.eq(1).addClass("show");
-            } else {
-                cont.removeClass("show");
+
+            if(wScroll >= cont.eq(0).offset().top - $(window).height()/3 ){
+                ddd()
+                
             }
-            if(wScroll > cont.eq(2).offset().top - $(window).height()/3 ){
-                cont.eq(2).addClass("show");
-            } else {
-                cont.removeClass("show");
+            if(wScroll >= cont.eq(1).offset().top - $(window).height()/3 ){
+                $("#section2 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section2 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
             }
-            if(wScroll > cont.eq(3).offset().top - $(window).height()/3 ){
-                cont.eq(3).addClass("show");
-            } else {
-                cont.removeClass("show");
+            if(wScroll >= cont.eq(2).offset().top - $(window).height()/3 ){
+                $("#section3 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section3 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
             }
-            if(wScroll > cont.eq(4).offset().top - $(window).height()/3 ){
-                cont.eq(4).addClass("show");
-            } else {
-                cont.removeClass("show");
+            if(wScroll >= cont.eq(3).offset().top - $(window).height()/3 ){
+                $("#section4 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section4 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
             }
-            if(wScroll > cont.eq(5).offset().top - $(window).height()/3 ){
-                cont.eq(5).addClass("show");
-            } else {
-                cont.removeClass("show");
-            }           
-            
+            if(wScroll >= cont.eq(4).offset().top - $(window).height()/3 ){
+                $("#section5 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section5 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
+            }
+            if(wScroll >= cont.eq(5).offset().top - $(window).height()/3 ){
+                $("#section6 h2 span").each(function(i){
+                    setTimeout(function(){
+                        $("#section6 h2 span").eq(i).addClass("show");
+                    },100*(i+1));
+                });
+            } 
         });
         
     </script>

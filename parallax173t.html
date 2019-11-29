@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>Parallax</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <style>
+        /* reset */
+        * {margin:0; padding:0; font-family: 'Lato';}
+        li {list-style: none;}
+        a {text-decoration: none;}
+        :root {
+        --base: 1vh;
+        --move: 1rem;
+        }
+
+        /* nav */
+        #nav {position: fixed; left: 0; top: 0px; width: 100%; height: 61px; z-index: 1000; background-color: rgba(255,255,255,0.3); transition: all 0.3s ease;}
+        #nav.on {position: fixed; top: -61px;}
+        #nav h1 {float: left; color: #fff; font-size: 40px; padding: 5px 5px 5px 15px; font-family: 'Abel' }
+        
+        /* contents */
+        #contents {text-align: center; color: #fff;}
+        #contents > div h2 {font-size: 70px; font-weight: 200; text-transform: uppercase;}
+        #contents > div h2 strong {font-weight: 700; font-style: italic; display: block;}
+        
+        /* section */
+        #section1 {
+            height: 100vh; display: flex; align-items: center; justify-content: center; 
+            background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);
+        }
+        #section2 {
+            padding: 10% 0;
+            background:radial-gradient(ellipse farthest-corner at center bottom, #3AA17E, #00537E);
+        }
+
+        
+        /* container */
+        .container {width: 1200px; margin: 0 auto;}
+
+        body {
+        width: 100vw;
+        height: 100vh;
+        }
+
+        .section {
+        position: relative;
+        height: 100vh;
+        }
+
+        .center {
+        position: absolute;
+        top: calc(50% - 25rem);
+        left: calc(50% - 25rem);
+        width: 50rem;
+        height: 50rem;
+        overflow: hidden;
+        }
+        .center.one .r, .center.one .g, .center.one .b {
+            background-image: url(https://i.ytimg.com/vi/gTAfwezfeCk/maxresdefault.jpg);
+        }
+        .center.two .r, .center.two .g, .center.two .b {
+            background-image: url(https://images.unsplash.com/photo-1570051779696-244e9f680cf7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+        }
+        .center.three .r, .center.three .g, .center.three .b {
+            background-image: url(https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+        }
+
+        .r, .g, .b {
+            position: absolute;
+            top: calc(var(--move) * -1);
+            left: calc(var(--move) * -1);
+            width: calc(var(--move) * 2 + 100%);
+            height: calc(var(--move) * 2 + 100%);
+            background-size: cover;
+            mix-blend-mode: screen;
+            background-blend-mode: darken;
+        }
+
+        .r {
+            background-color: red;
+        }
+
+        .g {
+            background-color: lime;
+        }
+
+        .b {
+            background-color: blue;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <h1>WEB'S</h1>
+    </nav>
+
+    <div class="section">
+        <div class="center one">
+            <div class="r"></div>
+            <div class="g"></div>
+            <div class="b"></div>
+        </div>
+        </div>
+        
+        <div class="section">
+        <div class="center two">
+            <div class="debug r"></div>
+            <div class="debug g"></div>
+            <div class="debug b"></div>
+        </div>
+        </div>
+        
+        <div class="section">
+        <div class="center three">
+            <div class="debug r"></div>
+            <div class="debug g"></div>
+            <div class="debug b"></div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script>
+        let speed = 300
+        let amount = 40
+        let scroll = 0
+        let smooth = 0
+        let diff = 0
+
+        document.addEventListener('scroll', (event) => {
+            scroll = window.scrollY
+            console.log(scroll)
+        })
+
+        let oldTime = null
+        let delta = 0
+
+        const animate = (t) =>{
+            if (oldTime) { delta = t - oldTime }
+            
+            smooth += (scroll - smooth) * delta / speed
+            diff = scroll - smooth
+            
+            let translateCenter = diff * -2 / amount
+            // let translateRed = diff * 3 / amount
+            let translateRed = diff * -1 / amount
+            let translateGreen = diff * 2 / amount
+            let translateBlue = diff * 1 / amount
+            
+            const cs = document.querySelectorAll('.center')
+            const rs = document.querySelectorAll('.r')
+            const gs = document.querySelectorAll('.g')
+            const bs = document.querySelectorAll('.b')
+
+            cs.forEach((image) => {
+                image.style.transform = `translateY(${translateCenter}px)`
+            })
+
+            rs.forEach((image) => {
+                image.style.transform = `translateY(${translateRed}px)`
+            })
+
+            gs.forEach((image) => {
+                image.style.transform = `translateY(${translateGreen}px)`
+            })
+
+            bs.forEach((image) => {
+                image.style.transform = `translateY(${translateBlue}px)`
+            })
+            oldTime = t
+            requestAnimationFrame(animate)
+        }
+
+        requestAnimationFrame(animate)
+        
+    </script>
+</body>
+</html>

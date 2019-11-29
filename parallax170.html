@@ -341,14 +341,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
-        $('a[href^="#"]').on('click', function(e){
-			var target = $($(this).attr('href'));
+        // $('a[href^="#"]').on('click', function(e){
+		// 	var target = $($(this).attr('href'));
             
-			if(target.length){
-				e.preventDefault();
-				$('html, body').animate({scrollTop:target.offset().top}, 400);
-			}
-		});
+		// 	if(target.length){
+		// 		e.preventDefault();
+		// 		$('html, body').animate({scrollTop:target.offset().top}, 400);
+		// 	}
+        // });
+        
+        //js
+        document.querySelectorAll('a[href^="#"]').forEach(elem => {
+            elem.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(elem.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
