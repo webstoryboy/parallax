@@ -57,23 +57,7 @@
         .container {width: 1200px; margin: 0 auto;}
         
         /* text animation */       
-        #section1 h2 span {opacity:0; transition: all 0.6s ease;}
-        #section1 h2 span.show {opacity:1;}
-        
-        #section2 h2 span {opacity:0; transition: all 0.6s ease;}
-        #section2 h2 span.show {opacity:1;}
-        
-        #section3 h2 span {opacity:0; transition: all 0.6s ease;}
-        #section3 h2 span.show {opacity:1;}
-
-        #section4 h2 span {opacity:0; transition: all 0.6s ease;}
-        #section4 h2 span.show {opacity:1;}
-        
-        #section5 h2 span {opacity:0; transition: all 0.6s ease;}
-        #section5 h2 span.show {opacity:1;}
-        
-        #section6 h2 span {opacity:0; transition: all 0.6s ease;}
-        #section6 h2 span.show {opacity:1;}
+        h2 span {opacity:0; display: inline-block; position: relative;}
     </style>
 </head>
 <body>
@@ -94,8 +78,8 @@
 
     <div id="contents">
         <div id="section1">
-            <div>
-                <h2 class="dd">바쁘게 살던가! 바쁘게 죽던가!</h2>
+            <div class="container">
+                <h2>바쁘게 살던가! 바쁘게 죽던가!</h2>
             </div>
         </div>
         <div id="section2">
@@ -141,7 +125,6 @@
             var offset = section.offset().top;
             $("html,body").animate({ scrollTop:offset },600,"easeInOutExpo");
         });
-        
         
         //Text Animation
         var text1 = $("#section1 h2").text().split(" ").join("</span> <span>");
@@ -198,50 +181,25 @@
             }
             
             var tl = new TimelineLite();
-            var dd = $(".dd > span");
-
-            function ddd(){
-                gsap.to(dd, 1 , {opacity:"1", left:"90%", scale:"3" });
-            }
+            var span = $("h2 > span");
 
             if(wScroll >= cont.eq(0).offset().top - $(window).height()/3 ){
-                ddd()
-                
+                gsap.to(span, 1, {opacity:"1"});
             }
             if(wScroll >= cont.eq(1).offset().top - $(window).height()/3 ){
-                $("#section2 h2 span").each(function(i){
-                    setTimeout(function(){
-                        $("#section2 h2 span").eq(i).addClass("show");
-                    },100*(i+1));
-                });
+                gsap.to(span, 1, {opacity:"1"});
             }
             if(wScroll >= cont.eq(2).offset().top - $(window).height()/3 ){
-                $("#section3 h2 span").each(function(i){
-                    setTimeout(function(){
-                        $("#section3 h2 span").eq(i).addClass("show");
-                    },100*(i+1));
-                });
+                gsap.to(span, 1, {opacity:"1"});
             }
             if(wScroll >= cont.eq(3).offset().top - $(window).height()/3 ){
-                $("#section4 h2 span").each(function(i){
-                    setTimeout(function(){
-                        $("#section4 h2 span").eq(i).addClass("show");
-                    },100*(i+1));
-                });
+                gsap.to(span, 1, {opacity:"1"});
             }
             if(wScroll >= cont.eq(4).offset().top - $(window).height()/3 ){
-                $("#section5 h2 span").each(function(i){
-                    setTimeout(function(){
-                        $("#section5 h2 span").eq(i).addClass("show");
-                    },100*(i+1));
-                });
+                gsap.to(span, 1, {opacity:"1"});
             }
             if(wScroll >= cont.eq(5).offset().top - $(window).height()/3 ){
-                $("#section6 h2 span").each(function(i){
-                    setTimeout(function(){
-                        $("#section6 h2 span").eq(i).addClass("show");
-                    },100*(i+1));
-                });
+                gsap.to(span, 1, {opacity:"1"});
             } 
         });
         
