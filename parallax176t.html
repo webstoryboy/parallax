@@ -154,87 +154,59 @@
     <div id="contents">
         <div id="section1">
             <div class="container">
-                <h2 class="has-animation animation-ltr" data-delay="10"><span>바쁘게 살던가! 바쁘게 죽던가!</span></h2>
+                <h2 class="paralax-title">바쁘게 살던가! 바쁘게 죽던가!</h2>
             </div>
         </div>
         <div id="section2">
             <div class="container">
-                <h2 class="has-animation animation-ltr" data-delay="10">
-                    <span>편안함이 끝나고 궁핍이 시작될 때</span> 
-                </h2>
-                <h2 class="has-animation animation-ltr" data-delay="200">
-                    <span>인생의 가름침이 시작된다.</span>
-                </h2>
+                <h2 class="paralax-title">편안함이 끝나고 궁핍이 시작될 때 인생의 가름침이 시작된다.</h2>
             </div>
         </div>
         <div id="section3">
             <div class="container">
-                <h2 class="has-animation animation-rtl"><span>시간이 약이면 뭐해! 마음이 기억하는데~</span></h2>
+                <h2 class="paralax-title">시간이 약이면 뭐해! 마음이 기억하는데~</h2>
             </div>
         </div>
         <div id="section4">
             <div class="container">
-                <h2 class="has-animation animation-rtl" data-delay="10">
-                    <span>예쁜 꽃을 찍으려면</span> 
-                </h2><br>
-                <h2 class="has-animation animation-rtl" data-delay="200">
-                    <span>예쁜 꽃을 볼 줄 알아야지.</span>
-                </h2>
+                <h2 class="paralax-title">예쁜 꽃을 찍으려면 예쁜 꽃을 볼 줄 알아야지.</h2>
             </div>
         </div>
         <div id="section5">
             <div class="container">
-                <h2 class="has-animation animation-ttb" data-delay="10">
-                    <span>항상 이길 수는 없지만</span> 
-                </h2><br>
-                <h2 class="has-animation animation-ttb" data-delay="100">
-                    <span>항상 배울 수는 있습니다.</span>
-                </h2>
+                <h2 class="paralax-title">항상 이길 수는 없지만 항상 배울 수는 있습니다.</h2>
             </div>
         </div>
         <div id="section6">
             <div class="container">
-                <h2 class="has-animation animation-btt" data-delay="10">
-                    <span>난쟁이들에 둘러싸여 있다고</span> 
-                </h2><br>
-                <h2 class="has-animation animation-btt" data-delay="100">
-                    <span>거인이 되는 것은 아니다.</span>
-                </h2>
+                <h2 class="paralax-title">난쟁이들에 둘러싸여 있다고 거인이 되는 것은 아니다.</h2>
             </div>
         </div>
     </div>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
+    
     <script>
-        var dot = $("#dot > ul > li");
-        var cont = $("#contents > div");
+        let didScroll = false;
+        let paralaxTitles = document.querySelectorAll('.paralax-title');
 
-        dot.click(function(e){
-            e.preventDefault();
-            var target = $(this);
-            var index = target.index();
-            var section = cont.eq(index);
-            var offset = section.offset().top;
-            $("html, body").animate({ scrollTop:offset }, 600, "easeInOutExpo");
-        });
+        const scrollInProgress = () => {
+            didScroll = true
+        }
 
-        
+        const raf = () => {
+            if(didScroll) {
+                paralaxTitles.forEach((element, index) => {
+                    element.style.transform = "translateX("+ window.scrollY / 10 + "%)"
+                })
+                didScroll = false;
+            }
+            requestAnimationFrame(raf);
+        }
 
 
-        $(window).scroll(function() { 
-            $('.has-animation').each(function(index) {
-                if($(window).scrollTop() + $(window).height() > $(this).offset().top ){ 
-                    $(this).delay($(this).data('delay')).queue(function(){
-                        $(this).addClass('animate-in');
-                        //$(this).parent().parent().addClass("show");
-                        //dot.removeClass("active");
-                        //dot.eq(index).addClass("active");
-                    });    
-                }   
-            });   
-        });
+        requestAnimationFrame(raf);
+        window.addEventListener('scroll', scrollInProgress)
+
 
             
     </script>
