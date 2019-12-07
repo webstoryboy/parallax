@@ -20,19 +20,10 @@
         
         /* contents */
         #contents {text-align: center; color: #fff;}
-        #contents > div h2 {font-size: 70px; font-weight: 200; text-transform: uppercase;}
-        #contents > div h2 strong {font-weight: 700; font-style: italic; display: block;}
-        
-        /* section */
-        #section1 {
-            height: 100vh; display: flex; align-items: center; justify-content: center; 
-            background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);
-        }
-        #section2 {
-            padding: 10% 0;
-            background:radial-gradient(ellipse farthest-corner at center bottom, #3AA17E, #00537E);
-        }
 
+        /* section */
+        #section1 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
+        #section1 h2 {font-size: 70px; font-weight: 200; text-transform: uppercase; padding: 20% 0;}
         
         /* container */
         .container {width: 1200px; margin: 0 auto;}
@@ -45,13 +36,26 @@
             align-items: center;
         }
         #postWrap .post {
+            position: relative;
             width: 100%;
-            height: 400px;
-            background: #FFF;
-            margin: 30px;
-            background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106114/splash-10.jpg);
-            background-size: contain;
+            min-height: 450px;
+            background-image: url(https://tistory2.daumcdn.net/tistory/2933724/skin/images/banner01.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 30px 30px 100px 30px;
+            background-color: #272C4E; 
+            
         }
+        #postWrap .post:nth-child(2) {filter: hue-rotate(10deg) sepia(140%)}
+        #postWrap .post:nth-child(3) {filter: saturate(200%);}
+        #postWrap .post:nth-child(4) {filter: invert(10%);}
+        #postWrap .post:nth-child(5) {filter: hue-rotate(50deg)}
+        #postWrap .post:nth-child(6) {filter: hue-rotate(150deg)}
+        #postWrap .post:nth-child(7) {filter: hue-rotate(250deg)}
+        #postWrap .post:nth-child(8) {filter: hue-rotate(350deg)}
+        #postWrap .post:nth-child(9) {filter: grayscale(100%)}
+        #postWrap .post:nth-child(10) {filter: brightness(60%);}
 
     </style>
 </head>
@@ -62,11 +66,7 @@
 
     <div id="contents">
         <div id="section1">
-            <div>
-                <h2>스크롤을 내리면 이미지가 <br>부드럽게 움직이게 하는 효과입니다.</h2>
-            </div>
-        </div>
-        <div id="section2">
+            <h2>스크롤을 내리면 이미지가 <br>부드럽게 움직이게 하는 효과입니다.</h2>
             <div class="container">
                 <div id="postWrap">
                     <div class="post"></div>

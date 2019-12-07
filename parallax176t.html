@@ -43,7 +43,6 @@
         #contents {text-align: center; color: #fff;}
         #contents > div {height: 100vh; display: flex; justify-content : center; align-items : center;}
         #contents > div h2 {font-size: 70px; font-weight: 200; text-transform: uppercase;}
-        #contents > div h2 strong {font-weight: 700; font-style: italic; display: block;}
         
         /* section */
         #section1 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
@@ -56,83 +55,7 @@
         /* container */
         .container {width: 1200px; margin: 0 auto;}
 
-        /* has-animation */  
-        .has-animation {
-            position: relative;
-            display: inline-block;
-        }
-        .has-animation span, 
-        .has-animation img {
-            opacity: 0;
-        }
-        .has-animation.animate-in span, .has-animation.animate-in img {
-            animation: textHidden 0.1s 1.1s forwards;
-        }
-        .has-animation.animate-in:before, 
-        .has-animation.animate-in:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            z-index: 10;
-        }
-        .has-animation.animate-in:before {
-            background-color: #0d47a1;
-        }
-        .has-animation.animate-in:after {
-            background-color: #42a5f5;
-            animation-delay: .5s;
-        }
-        .has-animation.animation-ltr.animate-in:before {
-            animation: revealLTR 1.8s ease;
-        }
-        .has-animation.animation-ltr.animate-in:after {
-            animation: revealLTR 1s .6s ease;
-        }
-        .has-animation.animation-rtl.animate-in:before {
-            animation: revealRTL 1.8s ease;
-        }
-        .has-animation.animation-rtl.animate-in:after {
-            animation: revealRTL 1s .6s ease;
-        }
-        .has-animation.animation-ttb.animate-in:before {
-            animation: revealTTB 1.8s ease backwards;
-        }
-        .has-animation.animation-ttb.animate-in:after {
-            animation: revealTTB 1s .6s ease backwards;
-        }
-        .has-animation.animation-btt.animate-in:before {
-            animation: revealBTT 1.8s ease;
-        }
-        .has-animation.animation-btt.animate-in:after {
-            animation: revealBTT 1s .6s ease;
-        }
-
-        @keyframes revealRTL {
-            0%   {width: 0; right: 0;}
-            65%  {width: 100%; right: 0;}
-            100% {width: 0; right: 100%;}
-        }
-        @keyframes revealLTR {
-            0%   {width: 0; left: 0;}
-            65%  {width: 100%; left: 0;}
-            100% {width: 0; left: 100%;}
-        }
-        @keyframes revealTTB {
-            0%   {width: 100%; height: 0; top: 0;}
-            65%  {width: 100%; height: 100%; top: 0;}
-            100% {width: 100%; height: 0; top: 100%;}
-        }
-        @keyframes revealBTT {
-            0%   {width: 100%; top: auto; height: 0; bottom: 0;}
-            65%  {width: 100%; top: auto; height: 100%; bottom: 0;}
-            100% {width: 100%; top: auto; height: 0; bottom: 100%;}
-        }
-        @keyframes textHidden {
-            0% {opacity: 0;}
-            100% {opacity: 1;}
-        }
+        
     </style>
 </head>
 <body>
@@ -152,61 +75,67 @@
     </div>
 
     <div id="contents">
-        <div id="section1">
+        <div id="section1" class="s1">
             <div class="container">
-                <h2 class="paralax-title">바쁘게 살던가! 바쁘게 죽던가!</h2>
+                <h2 class="effect">바쁘게 살던가! 바쁘게 죽던가!</h2>
             </div>
         </div>
-        <div id="section2">
+        <div id="section2" class="s2">
             <div class="container">
-                <h2 class="paralax-title">편안함이 끝나고 궁핍이 시작될 때 인생의 가름침이 시작된다.</h2>
+                <h2>편안함이 끝나고 궁핍이 시작될 때 인생의 가름침이 시작된다.</h2>
             </div>
         </div>
-        <div id="section3">
+        <div id="section3" class="s3">
             <div class="container">
-                <h2 class="paralax-title">시간이 약이면 뭐해! 마음이 기억하는데~</h2>
+                <h2 class="effect">시간이 약이면 뭐해! 마음이 기억하는데~</h2>
             </div>
         </div>
         <div id="section4">
             <div class="container">
-                <h2 class="paralax-title">예쁜 꽃을 찍으려면 예쁜 꽃을 볼 줄 알아야지.</h2>
+                <h2 class="s3">예쁜 꽃을 찍으려면 예쁜 꽃을 볼 줄 알아야지.</h2>
             </div>
         </div>
         <div id="section5">
             <div class="container">
-                <h2 class="paralax-title">항상 이길 수는 없지만 항상 배울 수는 있습니다.</h2>
+                <h2 class="s3">항상 이길 수는 없지만 항상 배울 수는 있습니다.</h2>
             </div>
         </div>
         <div id="section6">
             <div class="container">
-                <h2 class="paralax-title">난쟁이들에 둘러싸여 있다고 거인이 되는 것은 아니다.</h2>
+                <h2 class="s3">난쟁이들에 둘러싸여 있다고 거인이 되는 것은 아니다.</h2>
             </div>
         </div>
     </div>
     
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
-        let didScroll = false;
-        let paralaxTitles = document.querySelectorAll('.paralax-title');
+        $(window).scroll(function(){
+            
+            
 
-        const scrollInProgress = () => {
-            didScroll = true
-        }
-
-        const raf = () => {
-            if(didScroll) {
-                paralaxTitles.forEach((element, index) => {
-                    element.style.transform = "translateX("+ window.scrollY / 10 + "%)"
-                })
-                didScroll = false;
+            if( $(window).scrollTop() >= $(".s1").offset().top - $(window).height() ){
+                var offset1 = ($(window).scrollTop() - $(".s1").offset().top);
+                $(".s1 .effect").css({ 'transform' : 'translate('+ offset1 +'px, 0px)' })
             }
-            requestAnimationFrame(raf);
-        }
 
+            if( $(window).scrollTop() >= $(".s2").offset().top - $(window).height() ){
+                var offset2 = ($(window).scrollTop() - $(".s2").offset().top);
+                $(".s2 h2").css({ 'transform' : 'translate('+ offset2 +'px, 0px)' })
+            }
+            
 
-        requestAnimationFrame(raf);
-        window.addEventListener('scroll', scrollInProgress)
+            
+            $('.s3').each(function() {
+                if( $(window).scrollTop() >= $(this).offset().top - $(window).height() ){ 
+                    var offset3 = ($(window).scrollTop() - $(this).offset().top);
+                    $(".effect").css({ 'transform' : 'translate('+ offset3 +'px, 0px)' }) 
+                }   
+            });   
+            
 
+        }); 
 
             
     </script>
