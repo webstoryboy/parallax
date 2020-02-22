@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout 방식9</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,700,900&display=swap" rel="stylesheet">
+    <style>
+        *, *::after, *::before {box-sizing: border-box;}
+        :root {font-size: 16px;}
+        body {
+            margin: 0;
+            --color-text : #dc6e25;
+            --color-link : #333;
+            --color-bg : #333;
+            --imgwidthmax: 550px;
+            --aspect-ratio: 32/17;
+            color: var(--color-link);
+            background-color: var(--color-bg);
+            font-family: 'Lato', sans-serif;;
+        }
+        .infor {
+            position: fixed; right: 10px; top: 10px; z-index: 1000;
+            background: rgba(0,0,0,.3);
+            color: #fff;
+            padding: 20px;
+            font-size: 14px; line-height: 1.4;
+            text-align: right;
+        }
+        #wrap h1 {
+            font-size: 5rem;
+            padding: 3rem;
+            color: var(--color-text);
+        }
+        
+        .content-item { 
+            --imgwidth: calc(var(--imgwidthmax) * var(--aspect-ratio));
+            width: var(--imgwidth);
+            position: relative;
+            will-change: transform;
+        }
+        .content-item:nth-child(even){
+            margin-left: auto;
+        }
+        .content-item-num {
+            position: absolute; top: 30%; right: 10vw; transform: translateY(-50%);
+            font-size: 25vw; opacity: 0.03; line-height: 1;
+            font-weight: 100; 
+            color: #fff;
+        }
+        .content-item-title {
+            text-align: right; font-weight: 300; text-transform: capitalize;
+            color: #999; padding-right: 30px;
+        }
+        .content-item-imgWrap {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            --imgwidth: 50%;
+            overflow: hidden;
+            margin: 0 10vw 0 10vw;
+            width: var(--imgwidth); 
+            padding-top: calc(var(--imgwidth) / (var(--aspect-ratio)));
+            will-change: transform;
+        }
+        .content-item-img {
+            --overflow: 40px;
+            height: calc(100% + (2 * var(--overflow)));
+            position: absolute;
+            top: calc( -1 * var(--overflow));
+            width: 100%;
+            background-size: cover; 
+            background-position: 50% 0;
+            will-change: transform;
+        }
+        .content-item-desc { 
+            margin: 50vh 10vw 0 30vw;
+            font-size: 5vw; line-height: 1.2;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #fff;
+            text-align: right;
+            word-break: keep-all;
+            position: relative; z-index: 20;
+        }
+        #section1 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so01.jpg);}
+        #section2 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so02.jpg);}
+        #section3 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so03.jpg);}
+        #section4 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so04.jpg);}
+        #section5 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so05.jpg);}
+        #section6 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so06.jpg);}
+        #section7 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so07.jpg);}
+        #section8 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so08.jpg);}
+        #section9 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so09.jpg);}
+        
+        .contents { 
+            position:fixed; width: 900vw; margin: 0; height: 100vh;
+        }
+        .contents > section {width: 100vw; float: left; height: 100vh; }
+/*
+        .contents > section:nth-child(1) {background: #999;}
+        .contents > section:nth-child(2) {background: #888;}
+        .contents > section:nth-child(3) {background: #777;}
+        .contents > section:nth-child(4) {background: #666;}
+        .contents > section:nth-child(5) {background: #555;}
+        .contents > section:nth-child(6) {background: #444;}
+        .contents > section:nth-child(7) {background: #333;}
+        .contents > section:nth-child(8) {background: #222;}
+        .contents > section:nth-child(9) {background: #111;}
+*/
+        .infor {
+            position: fixed; right: 10px; top: 10px; z-index: 1000;
+            background: rgba(0,0,0,.3);
+            color: #fff;
+            padding: 20px;
+            font-size: 14px; line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="infor">
+        wScroll : <span class="wScroll">0</span><br>
+        wWidth : <span class="wWidth">0</span><br>
+        wHeight : <span class="wHeight">0</span><br>
+        dHeight : <span class="dHeight">0</span><br>
+        wRoad : <span class="wRoad">0</span><br>
+        step : <span class="step">0</span><br>
+        goLeft : <span class="goLeft">0</span><br>
+    </div>
+    
+    <div id="wrap">
+<!--        <h1>Parallax Scrolling</h1>-->
+        <div class="contents">
+            <section id="section1" class="content-item">
+                <span class="content-item-num">01</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+            <section id="section2" class="content-item">
+                <span class="content-item-num">02</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">결과도 중요하지만, 과정을 더 중요하게 생각한다.</p>
+            </section>
+            <section id="section3" class="content-item">
+                <span class="content-item-num">03</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">매 순간에 최선을 다하고, 끊임없이 변화한다.</p>
+            </section>
+            <section id="section4" class="content-item">
+                <span class="content-item-num">04</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">기본을 중요하게 생각한다.</p>
+            </section>
+            <section id="section5" class="content-item">
+                <span class="content-item-num">05</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">천 마디의 말보다 하나의 행동이 더 값지다.</p>
+            </section>
+            <section id="section6" class="content-item">
+                <span class="content-item-num">06</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">조그만 성공에 만족하지 않으며, 방심을 경계한다.</p>
+            </section>
+            <section id="section7" class="content-item">
+                <span class="content-item-num">07</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">내 스타일을 다른 사람에게 강요하지 않는다.</p>
+            </section>
+            <section id="section8" class="content-item">
+                <span class="content-item-num">08</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">나 자신의 이익을 위해 다른 사람을 이용하지 않는다.</p>
+            </section>
+            <section id="section9" class="content-item">
+                <span class="content-item-num">09</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">다른 사람의 의견도 존중한다.</p>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script>
+        var lastScrollTop = 0;							//현재 스크롤 값(제일 마지막 스크롤 값)
+        var roadLength = $(".contents").width();		//전체 가로 값
+        $("body").css("height", roadLength);		    //전체 세로 값은 width 전체 값을 할당
+        
+        
+        $(window).scroll(function(){
+            var wScroll = $(window).scrollTop();
+            var wWidth = $(window).width();								//현재 화면의 가로 값
+            var wHeight = $(window).height();							//현재 화면의 세로 값
+            var dHeight = $("body").height() - wHeight;		            //전체 세로 값 - 현재 화면의 새로 값
+            var wRoad = roadLength - wWidth;							//전체 가로 값 - 현재 화면의 가로 값
+            var step = wRoad/dHeight;								    //전체 가로 값 / 전체 세로 값
+            var goLeft = wScroll * step;
+            
+            $(".contents").css({ "transform":"translateX(-"+ goLeft +"px )" });
+            
+            lastScrollTop = wScroll;
+            
+            $(".wScroll").text(wScroll);
+            $(".wWidth").text(wWidth);
+            $(".wHeight").text(wHeight);
+            $(".dHeight").text(dHeight);
+            $(".wRoad").text(wRoad);
+            $(".step").text(parseInt(step));
+            $(".goLeft").text(parseInt(goLeft));
+            
+            
+            let offset1 = parseInt((wScroll - goLeft) * 2);
+            
+            //alert($("#section2").offset().left);
+            
+            $("#section1 .content-item-desc").css({ "transform" : "translateX("+ -offset1 +"px)" });
+            $("#section2 .content-item-desc").css({ "transform" : "translateX("+ -offset1 +"px)" });
+            $("#section3 .content-item-desc").css({ "transform" : "translateX("+ -offset1 +"px)" });
+            
+            $(document).keydown(function(e){
+                if(e.which == 39){
+                    var scrollTop = $(document).scrollTop();
+                    $(window).scrollTop(scrollTop + 50);
+                }
+                if(e.which == 37){
+                    var scrollTop = $(document).scrollTop();
+                    $(window).scrollTop(scrollTop - 50);
+                }
+            });
+            
+            if( $(window).scrollTop() > $("#section4").offset().top - $(window).height()/2  ){ 
+                $("#section4").addClass("show")
+            }  
+            if( $(window).scrollTop() > $("#section5").offset().top - $(window).height()/2  ){ 
+                $("#section5").addClass("show")
+            }  
+            
+        });
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

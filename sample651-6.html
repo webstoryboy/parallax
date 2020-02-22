@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout 방식6 - split1</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,700,900&display=swap" rel="stylesheet">
+    <style>
+        *, *::after, *::before {box-sizing: border-box;}
+        :root {font-size: 16px;}
+        body {
+            margin: 0;
+            --color-text : #dc6e25;
+            --color-link : #000;
+            --color-bg : #111;
+            --imgwidthmax: 550px;
+            --aspect-ratio: 32/17;
+            color: var(--color-link);
+            background-color: var(--color-bg);
+            font-family: 'Lato', sans-serif;;
+        }
+        .wrap h1 {
+            font-size: 5rem;
+            padding: 3rem;
+            color: var(--color-text);
+        }
+        .contents {
+            width: 100vw;
+            margin: 25vh 0 30vh;
+        }
+        .content-item { 
+            --imgwidth: calc(var(--imgwidthmax) * var(--aspect-ratio));
+            width: var(--imgwidth);
+            margin: 0 auto;
+            max-width: 90vw;
+            position: relative;
+            margin: 10% 0 20%;
+            will-change: transform;
+        }
+        .content-item:nth-child(even){
+            margin-left: auto;
+        }
+        .content-item-num {
+            position: absolute; top: -13vw; right: -10vw; 
+            font-size: 25vw; opacity: 0.03; line-height: 1;
+            font-weight: 100; 
+            color: #fff;
+        }
+        .content-item:nth-child(even) .content-item-num {
+            right: auto; left: -7vw;
+        }
+        .content-item-title {
+            text-align: right; font-weight: 300; text-transform: capitalize;
+            color: #999;
+        }
+        .content-item:nth-child(even) .content-item-title {
+            text-align: left;
+        }
+        .content-item-imgWrap {
+            position: relative;
+            --imgwidth: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            width: var(--imgwidth);
+            padding-bottom: calc(var(--imgwidth) / (var(--aspect-ratio)));
+            will-change: transform;
+        }
+        .content-item-img {
+            --overflow: 40px;
+            height: calc(100% + (2 * var(--overflow)));
+            position: absolute;
+            top: calc( -1 * var(--overflow));
+            width: 100%;
+            background-size: cover; 
+            background-position: 50% 0;
+            will-change: transform;
+        }
+        .content-item-desc { 
+            margin-top: -8vw;
+            margin-right: -10vw;
+            padding: 3vw;
+            font-size: 6vw; line-height: 1.2;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #fff;
+            text-align: right;
+            word-break: keep-all;
+            position: relative; z-index: 20;
+        }
+        .content-item:nth-child(even) .content-item-desc {
+            text-align: left; margin-right: 0; margin-left: -10vw;
+        }
+        
+        #section1 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so01.jpg);}
+        #section2 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so02.jpg);}
+        #section3 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so03.jpg);}
+        #section4 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so04.jpg);}
+        #section5 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so05.jpg);}
+        #section6 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so06.jpg);}
+        #section7 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so07.jpg);}
+        #section8 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so08.jpg);}
+        #section9 .content-item-img {background-image: url(http://flairgale.cafe24.com/para/images/so09.jpg);}
+
+        /* 01 */
+        #section1 .content-item-desc {
+            opacity: 0; transform: translateY(50px);
+            transition: opacity 0.64s 1.0s cubic-bezier(.37, .16, .12, 1), transform 0.44s 1.0s cubic-bezier(.37, .16, .12, 1);
+        }
+        #section1 .content-item-desc.show {opacity: 1; transform: translateY(0)}
+
+        /* 02 */
+        #section2 .content-item-desc {opacity: 0;}
+        #section2 .content-item-desc.show {opacity: 1; animation: flipInX 1s 1 forwards;}
+
+        @keyframes flipInX {
+            0%  {transform: perspective(400px) rotate3d(1, 0, 0, 90deg); animation-timing-function: ease-in; opacity: 0;}
+            40% {transform: perspective(400px) rotate3d(1, 0, 0, -20deg); animation-timing-function: ease-in;}
+            60% {transform: perspective(400px) rotate3d(1, 0, 0, 10deg); opacity: 1;}
+            80% {transform: perspective(400px) rotate3d(1, 0, 0, -5deg);}
+            100% {transform: perspective(400px);}
+        }
+
+        /* 03 */
+        #section3 .content-item-desc span {opacity: 0; display: inline-block; min-width: 30px;}
+        #section3 .content-item-desc.show span {animation: splite3 .35s ease forwards;}
+        #section3 .content-item-desc.show span:nth-of-type(1)  {animation-delay: 0s;}
+        #section3 .content-item-desc.show span:nth-of-type(2)  {animation-delay: 0.05s;}
+        #section3 .content-item-desc.show span:nth-of-type(3)  {animation-delay: 0.10s;}
+        #section3 .content-item-desc.show span:nth-of-type(4)  {animation-delay: 0.15s;}
+        #section3 .content-item-desc.show span:nth-of-type(5)  {animation-delay: 0.20s;}
+        #section3 .content-item-desc.show span:nth-of-type(6)  {animation-delay: 0.25s;}
+        #section3 .content-item-desc.show span:nth-of-type(7)  {animation-delay: 0.30s;}
+        #section3 .content-item-desc.show span:nth-of-type(8)  {animation-delay: 0.35s;}
+        #section3 .content-item-desc.show span:nth-of-type(9)  {animation-delay: 0.40s;}
+        #section3 .content-item-desc.show span:nth-of-type(10) {animation-delay: 0.45s;}
+        #section3 .content-item-desc.show span:nth-of-type(11) {animation-delay: 0.50s;}
+        #section3 .content-item-desc.show span:nth-of-type(12) {animation-delay: 0.55s;}
+        #section3 .content-item-desc.show span:nth-of-type(13) {animation-delay: 0.60s;}
+        #section3 .content-item-desc.show span:nth-of-type(14) {animation-delay: 0.65s;}
+        #section3 .content-item-desc.show span:nth-of-type(15) {animation-delay: 0.70s;}
+        #section3 .content-item-desc.show span:nth-of-type(16) {animation-delay: 0.75s;}
+        #section3 .content-item-desc.show span:nth-of-type(17) {animation-delay: 0.80s;}
+        #section3 .content-item-desc.show span:nth-of-type(18) {animation-delay: 0.85s;}
+        #section3 .content-item-desc.show span:nth-of-type(19) {animation-delay: 0.90s;}
+        #section3 .content-item-desc.show span:nth-of-type(20) {animation-delay: 0.95s;}
+        #section3 .content-item-desc.show span:nth-of-type(21) {animation-delay: 1.00s;}
+        #section3 .content-item-desc.show span:nth-of-type(22) {animation-delay: 1.05s;}
+        #section3 .content-item-desc.show span:nth-of-type(23) {animation-delay: 1.10s;}
+        #section3 .content-item-desc.show span:nth-of-type(24) {animation-delay: 1.15s;}
+        #section3 .content-item-desc.show span:nth-of-type(25) {animation-delay: 1.20s;}
+
+        @keyframes splite3 {
+            0%   {transform: translate(-150px, -50px) rotate(-180deg) scale(3);}
+            60%  {transform: translate(20px, 20px) rotate(30deg) scale(.3);}
+            100% {transform: translate(0) rotate(0) scale(1); opacity: 1;}
+        }
+
+        /* 04 */
+        #section4 .split4 span {opacity:0; transition: all 0.6s ease;}
+        #section4 .split4 span.show {opacity:1;}
+
+        /* 05 */
+        #section5 .split5 {overflow: hidden;}
+        #section5 .split5 span {transform: translateY(100px); display: inline-block; opacity: 0; min-width: 30px;}
+
+        /* 06 */
+        #section6 .split6 {overflow: hidden; font-size: 6vw; line-height: 5.8vw; padding: 0; padding-top: 2vw;}
+        #section6 .split6 span {transform: translateY(120px); min-width: 30px;}
+
+        /* 07 */
+        #section7 .split7 span {transform: translateY(120px) scale(0.5) rotate(-90deg); opacity: 0; min-width: 30px; display: inline-block;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Parallax Scrolling</h1>
+        <div class="contents">
+            <section id="section1" class="content-item">
+                <span class="content-item-num">01</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc split1">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+
+            <section id="section2" class="content-item">
+                <span class="content-item-num">02</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc split2">결과도 중요하지만, 과정을 더 중요하게 생각한다.</p>
+            </section>
+
+            <section id="section3" class="content-item">
+                <span class="content-item-num">03</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc split3" aria-label="매 순간에 최선을 다하고, 끊임없이 변화한다.">매 순간에 최선을 다하고, 끊임없이 변화한다.</p>
+            </section>
+
+            <section id="section4" class="content-item">
+                <span class="content-item-num">04</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc split4" aria-label="조그만 성공에 만족하지 않으며, 방심을 경계한다.">조그만 성공에 만족하지 않으며, 방심을 경계한다.</p>
+            </section>
+
+            <section id="section5" class="content-item">
+                <span class="content-item-num">05</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc split5" aria-label="천 마디의 말보다 하나의 행동이 더 값지다.">천 마디의 말보다 하나의 행동이 더 값지다.</p>
+            </section>
+
+            <section id="section6" class="content-item">
+                <span class="content-item-num">06</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc split6" aria-label="기본을 중요하게 생각한다.">기본을 중요하게 생각한다.</p>
+            </section>
+
+            <section id="section7" class="content-item">
+                <span class="content-item-num">07</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc split7" aria-label="내 스타일을 다른 사람에게 강요하지 않는다.">내 스타일을 다른 사람에게 강요하지 않는다.</p>
+            </section>
+
+            <section id="section8" class="content-item">
+                <span class="content-item-num">08</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc split8" aria-label="나 자신의 이익을 위해 다른 사람을 이용하지 않는다.">나 자신의 이익을 위해 다른 사람을 이용하지 않는다.</p>
+            </section>
+
+            <section id="section9" class="content-item">
+                <span class="content-item-num">09</span>
+                <h2 class="content-item-title">advice</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc split9" aria-label="다른 사람의 의견도 존중한다.">다른 사람의 의견도 존중한다.</p>
+            </section>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script>
+
+        let split3 = $(".split3").text().split("").join("</span><span aria-hidden='true'>");
+        split3 = "<span aria-hidden='true'>" + split3 + "</span>";
+        $(".split3").html(split3);
+
+        let split4 = $(".split4").text().split("").join("</span><span aria-hidden='true'>");
+        split4 = "<span aria-hidden='true'>" + split4 + "</span>";
+        $(".split4").html(split4);
+
+        let split5 = $(".split5").text().split("").join("</span><span aria-hidden='true'>");
+        split5 = "<span aria-hidden='true'>" + split5 + "</span>";
+        $(".split5").html(split5);
+
+        let split6 = $(".split6").text().split("").join("</span><span aria-hidden='true'>");
+        split6 = "<span aria-hidden='true'>" + split6 + "</span>";
+        $(".split6").html(split6);
+
+        let split7 = $(".split7").text().split("").join("</span><span aria-hidden='true'>");
+        split7 = "<span aria-hidden='true'>" + split7 + "</span>";
+        $(".split7").html(split7);
+
+        $(window).scroll(function() { 
+            // $(".content-item-desc").each(function() {
+            //     if( $(window).scrollTop() + $(window).height() > $(this).offset().top ){ 
+            //         $(this).delay($(this).data('delay')).queue(function(){
+            //             $(this).addClass("show");
+            //         });    
+            //     }   
+            // }); 
+            if( $(window).scrollTop() > $(".split1").offset().top - $(window).height()/2  ){ 
+                $(".split1").addClass("show")
+            }   
+            if( $(window).scrollTop() > $(".split2").offset().top - $(window).height()/2  ){ 
+                $(".split2").addClass("show")
+            }   
+            if( $(window).scrollTop() > $(".split3").offset().top - $(window).height()/2  ){ 
+                $(".split3").addClass("show")
+            }
+            if( $(window).scrollTop() > $(".split4").offset().top - $(window).height()/2  ){ 
+                $(".split4 span").each(function(i){
+                    setTimeout(function(){
+                        $(".split4 span").eq(i).addClass("show");
+                    },100 * (i+1));
+                });
+            }    
+            if( $(window).scrollTop() > $(".split5").offset().top - $(window).height()/2  ){ 
+                let tl5 = new TimelineMax();
+                tl5.staggerTo(".split5 span", 0.8, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0}, 0.05)
+            }   
+            if( $(window).scrollTop() > $(".split6").offset().top - $(window).height()/2  ){ 
+                let tl6 = new TimelineMax();
+                tl6.staggerTo(".split6 span", 0.8, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0}, 0.05)
+            }
+            if( $(window).scrollTop() > $(".split7").offset().top - $(window).height()/2  ){ 
+                let tl7 = new TimelineMax();
+                tl7.staggerTo(".split7 span", 0.3, {ease: "power4.out", rotation: 0, scale:1, opacity: 1, y: 0}, 0.05)
+            }  
+        });
+    </script>
+</body>
+</html>
