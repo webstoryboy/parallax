@@ -32,6 +32,18 @@ Parallax Totorial Site
   </ul>
 </div>
 
+<ul>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-1.html">sample651-1.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-2.html">sample651-3.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-3.html">sample651-4.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-4.html">sample651-4.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-5.html">sample651-5.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-6.html">sample651-6.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-7.html">sample651-7.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-8.html">sample651-8.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-9.html">sample651-9.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/sample651-10.html">sample651-10.html</a></li>
+</ul>
 
 
 
