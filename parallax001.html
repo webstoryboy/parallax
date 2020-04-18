@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Parallax001</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+        }
+        #wrap h1 {
+            font-size: 135px;
+            padding: 5%;
+            color: #dc6e25;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        #wrap h1 em {
+            font-weight: 100;
+            padding-left: 330px;
+            display: block;
+        }
+        .contents {
+            width: 100%; margin: 20% 0 30%;
+        }
+        .content-item {
+            position: relative;
+            width: 1000px; margin: 10% 0 25%;
+        }
+        .content-item:nth-child(even){
+            margin-left: auto;
+        }
+        .content-item-num {
+            font-size: 350px;
+            font-weight: 100;
+            color: #fff;
+            position: absolute;
+            right: -100px;
+            top: -200px;
+            opacity: 0.04;
+        }
+        .content-item:nth-child(even) .content-item-num {
+            right: auto; left: -100px;
+        }
+    
+        .content-item-title {
+            text-align: right;
+            font-weight: 300;
+            text-transform: capitalize;
+            color: #999;
+            padding-bottom: 10px;
+            font-size: 24px;
+        }
+        .content-item:nth-child(even) .content-item-title {
+            text-align: left;
+        }
+        .content-item-imgWrap {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            padding-bottom: 57%;
+            overflow: hidden;
+        }
+        .content-item-img {
+            height: 550px;
+            position: absolute;
+            top: -30px;
+            width: 100%;
+            background-size: cover;
+            background-position: 50% 0;
+        }
+        .content-item-desc {
+            font-size: 80px;
+            line-height: 1.2;
+            font-weight: 600;
+            text-align: right;
+            margin-top: -200px;
+            margin-right: -80px;
+            word-break: keep-all;
+            position: relative;
+            z-index: 20;
+        }
+        .content-item:nth-child(even) .content-item-desc {
+            text-align: left;
+            margin-right: 0;
+            margin-left: -100px;
+        }
+        #section1 .content-item-img {background-image: url(img/so01.jpg);}
+        #section2 .content-item-img {background-image: url(img/so02.jpg);}
+        #section3 .content-item-img {background-image: url(img/so03.jpg);}
+        #section4 .content-item-img {background-image: url(img/so04.jpg);}
+        #section5 .content-item-img {background-image: url(img/so05.jpg);}
+        #section6 .content-item-img {background-image: url(img/so06.jpg);}
+        #section7 .content-item-img {background-image: url(img/so07.jpg);}
+        #section8 .content-item-img {background-image: url(img/so08.jpg);}
+        #section9 .content-item-img {background-image: url(img/so09.jpg);}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <h1>Parallax <em>Scrolling</em></h1>
+        <div class="contents">
+            <section id="section1" class="content-item">
+                <span class="content-item-num">01</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+            <section id="section2" class="content-item">
+                <span class="content-item-num">02</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+            <section id="section3" class="content-item">
+                <span class="content-item-num">03</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+            <section id="section4" class="content-item">
+                <span class="content-item-num">04</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+            <section id="section5" class="content-item">
+                <span class="content-item-num">05</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+            <section id="section6" class="content-item">
+                <span class="content-item-num">06</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+            <section id="section7" class="content-item">
+                <span class="content-item-num">07</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+            <section id="section8" class="content-item">
+                <span class="content-item-num">08</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+            <section id="section9" class="content-item">
+                <span class="content-item-num">09</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </div>
+                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔한다.</p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

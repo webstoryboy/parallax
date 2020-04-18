@@ -1,0 +1,245 @@
+
+
+
+<div class="info-output">
+    <p class="bubble">
+        패럴랙스 기본 배우기 튜토리얼입니다.<br><br>
+
+        이 강의는 기본적인 HTML, CSS, JavaScript, JQuery를 알고 있어야 배울 수 있는 강의입니다. <br>
+        웹표준 강의, 반응형 강의, 메가박스 강의를 보고 오시면 도움이 됩니다.^^<br><br>
+
+        모든 강의는 소스를 보면서 따라하는 튜토리얼이며,<br>
+        직접 서버에 따라하시고 댓글로 서버 주소를 알려주시면<br>
+        모르는 부분은 도움을 드릴 수 있습니다.
+    </p>
+
+    <div class="code-youtube">
+        <h2>Code Youtube</h2>
+        <iframe src="https://www.youtube.com/embed/zcMwtIScgw8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <!-- //code-youtube -->
+    
+    <div class="code-reference">
+        <h2>Code Reference</h2>
+        <p class="bubble warning">소스 다운로드 <a class="color-values"
+                href="https://github.com/webstoryboy/parallax" target="_blank"> 바로가기</a></p>
+        <p class="bubble warning">완성 예제 <a class="color-values"
+                href="https://webstoryboy.github.io/parallax/parallax162.html" target="_blank"> 바로가기</a></p>
+    </div>
+    <!-- //code-reference -->
+
+    <div class="code-preview">
+        <h2>Code example</h2>
+
+        <div class="tab-menu">
+            <div class="tab-btn">
+                <ul>
+                    <li class="active"><a href="#">index.html</a></li>
+                    <li><a href="#">style.css</a></li>
+                    <li><a href="#">script.js</a></li>
+                </ul>
+            </div>
+            <div class="tab-cont">
+                <div>
+<pre class="line-numbers language-html xml"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+
+    &lt;title&gt;Parallax&lt;/title&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i'" rel="stylesheet"&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav id="nav"&gt;
+        &lt;h1&gt;WEB'S&lt;/h1&gt;
+    &lt;/nav&gt;
+    
+    &lt;div id="dot"&gt;
+        &lt;ul&gt;
+            &lt;li class="active"&gt;&lt;a href="#"&gt;&lt;em&gt;menu1&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;menu2&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;menu3&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;menu4&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;menu5&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;menu6&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;div id="contents"&gt;
+        &lt;div id="section1"&gt;&lt;h2&gt;우아한 &lt;strong&gt;성공은&lt;/strong&gt; 없다.&lt;/h2&gt;&lt;/div&gt;
+        &lt;div id="section2"&gt;&lt;h2&gt;&lt;strong&gt;기회는&lt;/strong&gt; 바로 옆에 있다.&lt;/h2&gt;&lt;/div&gt;
+        &lt;div id="section3"&gt;&lt;h2&gt;현실을 &lt;strong&gt;외면하지 말라.&lt;/strong&gt;&lt;/h2&gt;&lt;/div&gt;
+        &lt;div id="section4"&gt;&lt;h2&gt;공부는 우리 삶의 &lt;strong&gt;우선적 요소다.&lt;/strong&gt;&lt;/h2&gt;&lt;/div&gt;
+        &lt;div id="section5"&gt;&lt;h2&gt;&lt;strong&gt;기회가&lt;/strong&gt; 없으면 만들면 된다.&lt;/h2&gt;&lt;/div&gt;
+        &lt;div id="section6"&gt;&lt;h2&gt;모든 일은 &lt;strong&gt;스스로 해결하라.&lt;/strong&gt;&lt;/h2&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        var dot = $("#dot &gt; ul &gt; li");
+        var cont = $("#contents &gt; div");
+
+        dot.click(function(e){
+            e.preventDefault();
+            var target = $(this);
+            var index = target.index();
+            //alert(index);
+            var section = cont.eq(index);
+            var offset = section.offset().top;
+            $("html,body").animate({ scrollTop:offset },600,"easeInOutExpo");
+        });
+
+        $(window).scroll(function(){
+            var wScroll = $(this).scrollTop();
+            
+            if(wScroll &gt;= cont.eq(0).offset().top){
+                dot.removeClass("active");
+                dot.eq(0).addClass("active");
+            }
+            if(wScroll &gt;= cont.eq(1).offset().top){
+                dot.removeClass("active");
+                dot.eq(1).addClass("active");
+            }
+            if(wScroll &gt;= cont.eq(2).offset().top){
+                dot.removeClass("active");
+                dot.eq(2).addClass("active");
+            }
+            if(wScroll &gt;= cont.eq(3).offset().top){
+                dot.removeClass("active");
+                dot.eq(3).addClass("active");
+            }
+            if(wScroll &gt;= cont.eq(4).offset().top){
+                dot.removeClass("active");
+                dot.eq(4).addClass("active");
+            }
+            if(wScroll &gt;= cont.eq(5).offset().top){
+                dot.removeClass("active");
+                dot.eq(5).addClass("active");
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                </div>
+                <!--//tab-cont1 -->
+                <div>
+<pre class="line-numbers language-css"><code>/* reset */
+* {margin:0; padding:0; font-family: 'Lato';}
+li {list-style: none;}
+a {text-decoration: none;}
+
+/* nav */
+#nav {position: fixed; left: 0; top: 0px; width: 100%; height: 61px; z-index: 1000; background-color: rgba(255,255,255,0.3); transition: all 0.3s ease;}
+#nav.on {position: fixed; top: -61px;}
+#nav h1 {float: left; color: #fff; font-size: 40px; padding: 5px 5px 5px 15px; font-family: 'Abel' }
+
+/* dot */
+#dot {position: fixed; right: 20px; top:50%; transform: translatey(-50%);}
+#dot li {
+    position: relative;
+    width: 20px; height: 20px; border-radius:50%; 
+    box-shadow: 0 0 0 2px rgba(255,255,255,0);
+    margin: 8px;
+    transition: box-shadow 0.3s ease;
+}
+#dot li a { 
+    background-color: rgba(255,255,255,0.7);
+    width: 100%; height: 100%;
+    position: absolute; top:0; left: 0;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+#dot li.active {box-shadow: 0 0 0 2px rgba(255,255,255,1);}
+#dot li.active a {transform: scale(0.4);}
+#dot li a em {display: none;}        
+
+/* contents */
+#contents {text-align: center; color: #fff;}
+#contents &gt; div {height: 100vh; line-height: 100vh;}
+#contents &gt; div h2 {font-size: 70px; font-weight: 200; text-transform: uppercase;}
+#contents &gt; div h2 strong {font-weight: 700; font-style: italic;}
+
+/* section */
+#section3 {background:radial-gradient(ellipse farthest-corner at center top, #A3A1FF, #3A3897);}
+#section2 {background:radial-gradient(ellipse farthest-corner at center bottom, #3AA17E, #00537E);}
+#section1 {background:radial-gradient(ellipse farthest-corner at center top, #29ABE2, #4F00BC);}
+#section4 {background:radial-gradient(ellipse farthest-corner at center top, #FF5300, #45145A);}
+#section5 {background:radial-gradient(ellipse farthest-corner at center bottom, #852D91, #312A6C);}
+#section6 {background:radial-gradient(ellipse farthest-corner at center top, #FBB03B, #D4145A);}</code></pre>
+                </div>
+                <!--//tab-cont2 -->
+                <div>
+<pre class="line-numbers language-javascript"><code>var dot = $("#dot &gt; ul &gt; li");
+var cont = $("#contents &gt; div");
+
+dot.click(function(e){
+    e.preventDefault();
+    var target = $(this);
+    var index = target.index();
+    //alert(index);
+    var section = cont.eq(index);
+    var offset = section.offset().top;
+    $("html,body").animate({ scrollTop:offset },600,"easeInOutExpo");
+});
+
+$(window).scroll(function(){
+    var wScroll = $(this).scrollTop();
+    
+    if(wScroll &gt;= cont.eq(0).offset().top){
+        dot.removeClass("active");
+        dot.eq(0).addClass("active");
+    }
+    if(wScroll &gt;= cont.eq(1).offset().top){
+        dot.removeClass("active");
+        dot.eq(1).addClass("active");
+    }
+    if(wScroll &gt;= cont.eq(2).offset().top){
+        dot.removeClass("active");
+        dot.eq(2).addClass("active");
+    }
+    if(wScroll &gt;= cont.eq(3).offset().top){
+        dot.removeClass("active");
+        dot.eq(3).addClass("active");
+    }
+    if(wScroll &gt;= cont.eq(4).offset().top){
+        dot.removeClass("active");
+        dot.eq(4).addClass("active");
+    }
+    if(wScroll &gt;= cont.eq(5).offset().top){
+        dot.removeClass("active");
+        dot.eq(5).addClass("active");
+    }
+});
+</code></pre>
+                </div>
+                <!--//tab-cont3 -->
+            </div>
+        </div>
+        <!-- //tab-munu -->
+    </div>
+    <!-- //code-preview -->
+
+    <div class="code-reference">
+        <h2>Site Reference</h2>
+        <p class="bubble warning">CODEPEN<a class="color-values"
+                href="https://codepen.io/webstoryboy/" target="_blank"> 바로가기</a></p>
+        <p class="bubble warning">INSTAGRAM <a class="color-values"
+                href="https://www.instagram.com/webstoryboy/" target="_blank"> 바로가기</a></p>
+        <p class="bubble warning">STUDY <a class="color-values"
+                    href="https://cafe.naver.com/crossbrowsing" target="_blank"> 바로가기</a></p>
+        <p class="bubble warning">YOUTUBE <a class="color-values"
+                        href="https://www.youtube.com/channel/UCsvQSv7EeCMHyYb9ENKAJZw" target="_blank"> 바로가기</a></p>
+    </div>
+
+    <p class="bubble">
+        도움이 되셨다면 구독과 좋아요 버튼을 꾸욱~~!!<br>
+        여러분의 댓글은 영상을 제작하는데 많은 힘이 됩니다.<br>
+        모르시거나 궁금한 사항은 언제든지 댓글로 남겨주세요.<br>
+        최대한 힘이 되어 드리겠습니다.<br>
+        오늘도 수고하셨습니다.</p>
+</div>
+<!-- //info-output -->
