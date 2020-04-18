@@ -2,7 +2,7 @@
 
 Parallax Totorial Site
 
-참고 사이트 : https://wtss.tistory.com/category/parallax
+참고 사이트 : https://wtss.tistory.com/category/SITE/05%20PARALLAX%20SITE
 
 
 <ul>
