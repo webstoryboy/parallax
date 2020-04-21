@@ -1,0 +1,414 @@
+
+
+
+<div class="info-output">
+    <p class="bubble">
+        패럴랙스 배우기 튜토리얼입니다.<br><br>
+
+        이 강의는 기본적인 기본 패럴랙스 사이트를 보고 오시는 것을 추천합니다.<br>
+        패럴랙스의 기본원리를 알았다면 이제는 제이쿼리와 자바스크립트를 이용하여
+        패럴랙스의 기본 구조를 배우는 단계입니다.<br><br>
+
+        모든 강의는 소스를 보면서 따라하는 튜토리얼이며,<br>
+        직접 서버에 따라하시고 댓글로 서버 주소를 알려주시면<br>
+        모르는 부분은 도움을 드릴 수 있습니다.
+    </p>
+
+    <div class="code-youtube">
+        <h2>Code Youtube</h2>
+        <iframe src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <!-- //code-youtube -->
+    
+    <div class="code-reference">
+        <h2>Code Reference</h2>
+        <p class="bubble warning">소스 다운로드 <a class="color-values"
+                href="https://github.com/webstoryboy/parallax" target="_blank"> 바로가기</a></p>
+        <p class="bubble warning">완성 예제 <a class="color-values"
+                href="https://webstoryboy.github.io/parallax/parallax103.html" target="_blank"> 바로가기</a></p>
+    </div>
+    <!-- //code-reference -->
+
+    <div class="code-preview">
+        <h2>Code example</h2>
+
+        <div class="tab-menu">
+            <div class="tab-btn">
+                <ul>
+                    <li class="active"><a href="#">index.html</a></li>
+                    <li><a href="#">style.css</a></li>
+                    <li><a href="#">script.js</a></li>
+                </ul>
+            </div>
+            <div class="tab-cont">
+                <div>
+<pre class="line-numbers language-html xml"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Parallax03 - 패럴랙스 효과&lt;/title&gt;
+    
+    &lt;link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    &lt;div class="info"&gt;
+        &lt;span&gt;scrollTop() : &lt;strong class="scrollTop"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;#section1 offset : &lt;strong class="s1OT"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;#section2 offset : &lt;strong class="s2OT"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;#section3 offset : &lt;strong class="s3OT"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;#section4 offset : &lt;strong class="s4OT"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;#section5 offset : &lt;strong class="s5OT"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;#section6 offset : &lt;strong class="s6OT"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;#section7 offset : &lt;strong class="s7OT"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;#section1 offset : &lt;strong class="s8OT"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;#section9 offset : &lt;strong class="s9OT"&gt;0&lt;/strong&gt;px&lt;/span&gt;&lt;br&gt;
+    &lt;/div&gt;
+    
+    &lt;div id="wrap"&gt;
+        &lt;h1&gt;Parallax &lt;em&gt;Scrolling&lt;/em&gt;&lt;/h1&gt;
+        &lt;div class="contents"&gt;
+            &lt;section id="section1" class="content-item"&gt;
+                &lt;span class="content-item-num"&gt;01&lt;/span&gt;
+                &lt;h2 class="content-item-title"&gt;Basic Coding&lt;/h2&gt;
+                &lt;div class="content-item-imgWrap"&gt;
+                    &lt;div class="content-item-img"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="content-item-desc"&gt;높은 목표를 세우고, 스스로 채직찔한다.&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section id="section2" class="content-item"&gt;
+                &lt;span class="content-item-num"&gt;02&lt;/span&gt;
+                &lt;h2 class="content-item-title"&gt;Basic Coding&lt;/h2&gt;
+                &lt;div class="content-item-imgWrap"&gt;
+                    &lt;div class="content-item-img"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="content-item-desc"&gt;결과도 중요하지만, 과정을 더 중요하게 생각한다.&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section id="section3" class="content-item"&gt;
+                &lt;span class="content-item-num"&gt;03&lt;/span&gt;
+                &lt;h2 class="content-item-title"&gt;Basic Coding&lt;/h2&gt;
+                &lt;div class="content-item-imgWrap"&gt;
+                    &lt;div class="content-item-img"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="content-item-desc"&gt;매 순간에 최선을 다하고, 끊임없이 변화한다.&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section id="section4" class="content-item"&gt;
+                &lt;span class="content-item-num"&gt;04&lt;/span&gt;
+                &lt;h2 class="content-item-title"&gt;Basic Coding&lt;/h2&gt;
+                &lt;div class="content-item-imgWrap"&gt;
+                    &lt;div class="content-item-img"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="content-item-desc"&gt;모든지 기본을 중요하게 생각한다.&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section id="section5" class="content-item"&gt;
+                &lt;span class="content-item-num"&gt;05&lt;/span&gt;
+                &lt;h2 class="content-item-title"&gt;Basic Coding&lt;/h2&gt;
+                &lt;div class="content-item-imgWrap"&gt;
+                    &lt;div class="content-item-img"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="content-item-desc"&gt;천 마디의 말보다 하나의 행동이 더 값지다.&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section id="section6" class="content-item"&gt;
+                &lt;span class="content-item-num"&gt;06&lt;/span&gt;
+                &lt;h2 class="content-item-title"&gt;Basic Coding&lt;/h2&gt;
+                &lt;div class="content-item-imgWrap"&gt;
+                    &lt;div class="content-item-img"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="content-item-desc"&gt;높은 목표를 세우고, 스스로 채직찔한다.&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section id="section7" class="content-item"&gt;
+                &lt;span class="content-item-num"&gt;07&lt;/span&gt;
+                &lt;h2 class="content-item-title"&gt;Basic Coding&lt;/h2&gt;
+                &lt;div class="content-item-imgWrap"&gt;
+                    &lt;div class="content-item-img"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="content-item-desc"&gt;조그만 성공에 만족하지 않으며, 방심을 경계한다.&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section id="section8" class="content-item"&gt;
+                &lt;span class="content-item-num"&gt;08&lt;/span&gt;
+                &lt;h2 class="content-item-title"&gt;Basic Coding&lt;/h2&gt;
+                &lt;div class="content-item-imgWrap"&gt;
+                    &lt;div class="content-item-img"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="content-item-desc"&gt;내 스타일을 다른 사람에게 강요하지 않는다.&lt;/p&gt;
+            &lt;/section&gt;
+            &lt;section id="section9" class="content-item"&gt;
+                &lt;span class="content-item-num"&gt;09&lt;/span&gt;
+                &lt;h2 class="content-item-title"&gt;Basic Coding&lt;/h2&gt;
+                &lt;div class="content-item-imgWrap"&gt;
+                    &lt;div class="content-item-img"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class="content-item-desc"&gt;나 자신의 이익을 위해 다른 사람을 이용하지 않는다.&lt;/p&gt;
+            &lt;/section&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;    
+</code></pre>
+                </div>
+                <!--//tab-cont1 -->
+                <div>
+<pre class="line-numbers language-css"><code>* {margin: 0; padding: 0; box-sizing: border-box;}
+:root {font-size: 16px;}
+body {
+    --color-h1: #dc6e25;
+    --color-title: #fff;
+    --color-sub: #999;
+    --color-link: #000;
+    --color-bg: #111;
+    --image-widthMax: 500px;
+    --aspect-ratio: 32/17;
+    color: var(--color-title);
+    background-color: var(--color-bg);
+    font-family: 'Lato', sans-serif;
+}
+#wrap h1 {
+    font-size: 8vw;
+    padding: 5vw;
+    color: var(--color-h1);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+#wrap h1 em {
+    display: block;
+    padding-left: 20vw;
+    font-weight: 100;
+}
+.contents {
+    width: 100%;
+    padding: 35vh 0 40vh;
+    overflow: hidden;
+}
+.content-item {
+    /* width: 1000px; */
+    --image-width: calc(var(--image-widthMax) * var(--aspect-ratio));
+    width: var(--image-width);
+    margin: 10vh 0 45vh;
+    max-width: 90vw;
+    position: relative;
+}
+.content-item:nth-child(even){
+    margin-left: auto;
+}
+.content-item-num {
+    font-size: 23vw;
+    opacity: 0.04;
+    line-height: 1;
+    font-weight: 100;
+    color: var(--color-title);
+    position: absolute;
+    top: -13vw; right: -10vw;
+}
+.content-item:nth-child(even) .content-item-num {
+    right: auto; left: -7vw;
+}
+.content-item-title {
+    text-align: right;
+    font-weight: 300;
+    text-transform: capitalize;
+    color: var(--color-sub);
+    padding-bottom: 0.8vw;
+    font-size: 1.5rem;
+}
+.content-item:nth-child(even) .content-item-title {
+    text-align: left;
+}
+.content-item-imgWrap {
+    /* width: 100%;
+    padding-bottom: 57%; */
+    --width: 100%;
+    width: var(--width);
+    padding-bottom: calc( (var(--width)) / (var(--aspect-ratio)) );
+    will-change: transform;
+    position: relative; z-index: 10;
+    overflow: hidden;
+}
+.content-item-img {
+    /*height: 550px;
+    position: absolute;
+    top: -30px; */
+    width: var(--width);
+    background-size: cover;
+    background-position: 50% 0;
+    --overflow: 40px;
+    height: calc(100% + (2 * var(--overflow)));
+    position: absolute;
+    top: calc( -1 * var(--overflow));
+    will-change: transform;
+}
+.content-item-desc {
+    font-size: 5vw;
+    line-height: 1.2;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-title);
+    text-align: right;
+    word-break: keep-all;
+    margin-top: -8vw;
+    margin-right: -5vw;
+    position: relative;
+    z-index: 20
+}
+.content-item:nth-child(even) .content-item-desc {
+    text-align: left;
+    margin-right: 0;
+    margin-left: -5vw;
+}
+
+#section1 .content-item-img {background-image: url(img/so09.jpg);}
+#section2 .content-item-img {background-image: url(img/so02.jpg);}
+#section3 .content-item-img {background-image: url(img/so03.jpg);}
+#section4 .content-item-img {background-image: url(img/so04.jpg);}
+#section5 .content-item-img {background-image: url(img/so05.jpg);}
+#section6 .content-item-img {background-image: url(img/so06.jpg);}
+#section7 .content-item-img {background-image: url(img/so07.jpg);}
+#section8 .content-item-img {background-image: url(img/so08.jpg);}
+#section9 .content-item-img {background-image: url(img/so01.jpg);}
+
+.info {
+    position: fixed; top: 20px; right: 20px;
+    background: rgba(255,255,255,0.4);
+    color: #000;
+    padding: 10px;
+    font-size: 14px; font-weight: 300;
+    z-index: 10000;
+    font-style: normal;
+}
+.contents &gt; section {opacity: 0; transform: translateY(100px); transition: all 0.6s ease;}
+.contents &gt; section.show {opacity: 1; transform: translateY(0);}
+
+</code></pre>
+                </div>
+                <!--//tab-cont2 -->
+                <div>
+<pre class="line-numbers language-javascript"><code>//제이쿼리를 이용한 패럴랙스 효과 만들기
+$(window).scroll(function(){
+    const scrollTop = parseInt($(window).scrollTop() + $(window).height()/2 );  
+    
+    $(".scrollTop").text(scrollTop);
+    $(".s1OT").text(parseInt($("#section1").offset().top));
+    $(".s2OT").text(parseInt($("#section2").offset().top));
+    $(".s3OT").text(parseInt($("#section3").offset().top));
+    $(".s4OT").text(parseInt($("#section4").offset().top));
+    $(".s5OT").text(parseInt($("#section5").offset().top));
+    $(".s6OT").text(parseInt($("#section6").offset().top));
+    $(".s7OT").text(parseInt($("#section7").offset().top));
+    $(".s8OT").text(parseInt($("#section8").offset().top));
+    $(".s9OT").text(parseInt($("#section9").offset().top));
+    
+    if(scrollTop &gt; parseInt($("#section1").offset().top)){
+        $(".s1OT").css("color","red")
+    } else {
+        $(".s1OT").css("color","black");
+    }
+    if(scrollTop &gt; parseInt($("#section2").offset().top)){
+        $(".s2OT").css("color","red")
+    } else {
+        $(".s2OT").css("color","black");
+    }
+    if(scrollTop &gt; parseInt($("#section3").offset().top)){
+        $(".s3OT").css("color","red")
+    } else {
+        $(".s3OT").css("color","black");
+    }
+    if(scrollTop &gt; parseInt($("#section4").offset().top)){
+        $(".s4OT").css("color","red")
+    } else {
+        $(".s4OT").css("color","black");
+    }
+    if(scrollTop &gt; parseInt($("#section5").offset().top)){
+        $(".s5OT").css("color","red")
+    } else {
+        $(".s5OT").css("color","black");
+    }
+    if(scrollTop &gt; parseInt($("#section6").offset().top)){
+        $(".s6OT").css("color","red")
+    } else {
+        $(".s6OT").css("color","black");
+    }
+    if(scrollTop &gt; parseInt($("#section7").offset().top)){
+        $(".s7OT").css("color","red")
+    } else {
+        $(".s7OT").css("color","black");
+    }
+    if(scrollTop &gt; parseInt($("#section8").offset().top)){
+        $(".s8OT").css("color","red")
+    } else {
+        $(".s8OT").css("color","black");
+    }
+    if(scrollTop &gt; parseInt($("#section9").offset().top)){
+        $(".s9OT").css("color","red")
+    } else {
+        $(".s9OT").css("color","black");
+    }
+    
+    //노가다 작성
+//            if(scrollTop &gt; $("#section1").offset().top){
+//                $("#section1").addClass("show");
+//            }
+//            if(scrollTop &gt; $("#section2").offset().top){
+//                $("#section2").addClass("show");
+//            }
+//            if(scrollTop &gt; $("#section3").offset().top){
+//                $("#section3").addClass("show");
+//            }
+//            if(scrollTop &gt; $("#section4").offset().top){
+//                $("#section4").addClass("show");
+//            }
+//            if(scrollTop &gt; $("#section5").offset().top){
+//            0    $("#section5").addClass("show");
+//            }
+//            if(scrollTop &gt; $("#section6").offset().top){
+//                $("#section6").addClass("show");
+//            }
+//            if(scrollTop &gt; $("#section7").offset().top){
+//                $("#section7").addClass("show");
+//            }
+//            if(scrollTop &gt; $("#section8").offset().top){
+//                $("#section8").addClass("show");
+//            }
+//            if(scrollTop &gt; $("#section9").offset().top){
+//                $("#section9").addClass("show");
+//            }
+    
+    //한번에 작성하기
+    $(".content-item").each(function(){
+        if(scrollTop &gt; $(this).offset().top){
+            $(this).addClass("show");
+        } else {
+            $(this).removeClass("show");
+        }
+    }); 
+});
+</code></pre>
+                </div>
+                <!--//tab-cont3 -->
+            </div>
+        </div>
+        <!-- //tab-munu -->
+    </div>
+    <!-- //code-preview -->
+
+    <div class="code-reference">
+        <h2>Site Reference</h2>
+        <p class="bubble warning">CODEPEN<a class="color-values"
+                href="https://codepen.io/webstoryboy/" target="_blank"> 바로가기</a></p>
+        <p class="bubble warning">INSTAGRAM <a class="color-values"
+                href="https://www.instagram.com/webstoryboy/" target="_blank"> 바로가기</a></p>
+        <p class="bubble warning">STUDY <a class="color-values"
+                    href="https://cafe.naver.com/crossbrowsing" target="_blank"> 바로가기</a></p>
+        <p class="bubble warning">YOUTUBE <a class="color-values"
+                        href="https://www.youtube.com/channel/UCsvQSv7EeCMHyYb9ENKAJZw" target="_blank"> 바로가기</a></p>
+    </div>
+
+    <p class="bubble">
+        도움이 되셨다면 구독과 좋아요 버튼을 꾸욱~~!!<br>
+        여러분의 댓글은 영상을 제작하는데 많은 힘이 됩니다.<br>
+        모르시거나 궁금한 사항은 언제든지 댓글로 남겨주세요.<br>
+        최대한 힘이 되어 드리겠습니다.<br>
+        오늘도 수고하셨습니다.</p>
+</div>
+<!-- //info-output -->
