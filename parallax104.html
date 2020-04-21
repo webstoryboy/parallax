@@ -247,7 +247,7 @@
         window.addEventListener("scroll", () => { 
             let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop) + screen.height/2;
             
-            document.querySelector(".pageYOffset").textContent = pageYOffset;
+            document.querySelector(".pageYOffset").textContent = parseInt(pageYOffset);
             //document.querySelector(".pageXOffset").innerText = pageYOffset;
             //document.querySelector(".pageXOffset").innerHTML = pageYOffset;
      
