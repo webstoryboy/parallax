@@ -21,16 +21,16 @@ Parallax Totorial Site
 </ul>
 
 <ul>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax001.html">sample20.html</a></li>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax002.html">sample21.html</a></li>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax003.html">sample22.html</a></li>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax004.html">sample23.html</a></li>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax005.html">sample24.html</a></li>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax006.html">sample25.html</a></li>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax007.html">sample26.html</a></li>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax008.html">sample27.html</a></li>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax009.html">sample28.html</a></li>
-<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax010.html">sample29.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax100.html">sample20.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax101.html">sample21.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax102.html">sample22.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax103.html">sample23.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax104.html">sample24.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax105.html">sample25.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax106.html">sample26.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax107.html">sample27.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax108.html">sample28.html</a></li>
+<li><a target="_blank" href="https://webstoryboy.github.io/parallax/parallax109.html">sample29.html</a></li>
 </ul>
 
 
